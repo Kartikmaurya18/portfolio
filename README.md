@@ -21,17 +21,9 @@ All content is data-driven. You should rarely need to touch a component.
 | Projects (featured, freelance spotlight, archive, case studies) | `src/content/projects.ts` |
 | Field documentation | `src/content/types.ts` |
 
-### Placeholders to fill in
+### Contact links
 
-These are intentionally empty in `src/content/site.ts`. Until they're set, the related buttons render in a disabled "coming soon" state instead of linking to something broken.
-
-```ts
-export const links = {
-  email: "",    // EMAIL
-  github: "",   // GITHUB   e.g. "https://github.com/username"
-  linkedin: "", // LINKEDIN e.g. "https://www.linkedin.com/in/handle"
-};
-```
+Email, GitHub and LinkedIn live in `links` in `src/content/site.ts`. Setting any of them to an empty string renders the related buttons in a disabled "coming soon" state instead of linking to something broken.
 
 Empty experience fields (`period`, `location`, `highlights`, `stack`) are hidden rather than shown blank.
 

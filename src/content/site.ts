@@ -10,12 +10,9 @@ import type { Experience } from "./types";
  */
 
 export const links = {
-  /** EMAIL — e.g. "hello@yourdomain.com" */
-  email: "",
-  /** GITHUB — e.g. "https://github.com/your-username" */
-  github: "",
-  /** LINKEDIN — e.g. "https://www.linkedin.com/in/your-handle" */
-  linkedin: "",
+  email: "kartikmaurya18@gmail.com",
+  github: "https://github.com/Kartikmaurya18",
+  linkedin: "https://www.linkedin.com/in/kartik-maurya-0a8271259",
 };
 
 export const site = {
