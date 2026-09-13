@@ -5,11 +5,11 @@ import * as m from "motion/react-m";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Close, Menu, Search } from "@/components/icons";
+import { ArrowRight, Close, Download, Menu, Search } from "@/components/icons";
 import { openCommandPalette, ShortcutKeys } from "@/components/ui/client-bits";
 import { Logo } from "@/components/ui/logo";
 import { SocialLinks } from "@/components/ui/social-links";
-import { nav, site } from "@/content/site";
+import { links, nav, site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -117,6 +117,16 @@ export function Nav() {
               <Search className="size-3.5" />
               <ShortcutKeys />
             </button>
+            {links.resume && (
+              <a
+                href={links.resume}
+                download="Kartik-Maurya-Resume.pdf"
+                className="hidden h-9 items-center gap-1.5 rounded-full px-3.5 text-sm text-muted ring-1 ring-line ring-inset transition hover:text-fg hover:ring-line-strong xl:inline-flex"
+              >
+                <Download className="size-3.5" />
+                Resume
+              </a>
+            )}
             <Link
               href="/#contact"
               className="group hidden h-9 items-center gap-1.5 rounded-full bg-fg px-4 text-sm font-medium text-bg transition hover:bg-white md:inline-flex"
@@ -184,6 +194,16 @@ export function Nav() {
               >
                 Let&apos;s Talk <ArrowRight className="size-4" />
               </Link>
+              {links.resume && (
+                <a
+                  href={links.resume}
+                  download="Kartik-Maurya-Resume.pdf"
+                  onClick={close}
+                  className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full font-medium text-fg ring-1 ring-line-strong ring-inset"
+                >
+                  <Download className="size-4" /> Resume
+                </a>
+              )}
               <SocialLinks className="mt-8 justify-center" />
             </div>
           </m.div>

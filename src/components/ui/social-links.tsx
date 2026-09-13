@@ -1,5 +1,4 @@
-import { Download, GitHub, LinkedIn, Mail } from "@/components/icons";
-import { links } from "@/content/site";
+import { GitHub, LinkedIn, Mail } from "@/components/icons";
 import { contactLinks, type ContactLinkId } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
@@ -38,18 +37,6 @@ export function SocialLinks({ className }: { className?: string }) {
           </li>
         );
       })}
-      {links.resume && (
-        <li>
-          <a
-            href={links.resume}
-            download="Kartik-Maurya-Resume.pdf"
-            className="inline-flex items-center gap-2 text-muted transition-colors hover:text-fg"
-          >
-            <Download className="size-4" />
-            Resume
-          </a>
-        </li>
-      )}
     </ul>
   );
 }
