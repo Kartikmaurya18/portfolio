@@ -9,6 +9,13 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Links from the previous version of the site.
+  async redirects() {
+    return [
+      { source: "/projects/:slug(yumedics-dashboard|supriyapa|lataj)", destination: "/work/:slug", permanent: true },
+      { source: "/projects/:path*", destination: "/", permanent: true },
+    ];
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

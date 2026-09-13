@@ -1,79 +1,36 @@
-# Kartik Maurya — Portfolio
+# kartikm.in
 
-Personal portfolio of Kartik Maurya, Software Engineer & AI Builder.
-
-Built with Next.js 16 (App Router, Turbopack), React 19, TypeScript, Tailwind CSS 4 and Motion. Every page is statically prerendered.
+Portfolio of Kartik Maurya. Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4. Every page is statically prerendered; the only client JavaScript is a small scroll-reveal observer.
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
-npm run build      # production build (includes type checking)
+npm run dev      # http://localhost:3000
+npm run build
 npm run lint
 ```
 
 ## Editing content
 
-All content is data-driven. You should rarely need to touch a component.
+Content lives in typed data files. Components never hold copy.
 
-| What | Where |
+| File | What it holds |
 | --- | --- |
-| Name, links, hero, stats, about, experience, Agentic AI copy, skills, principles, contact, footer | `src/content/site.ts` |
-| Projects (featured, freelance spotlight, archive, case studies) | `src/content/projects.ts` |
-| Field documentation | `src/content/types.ts` |
+| `src/content/site.ts` | Name, links, hero sentence, About (max three sentences), freelance intro, contact line |
+| `src/content/experience.ts` | Roles, dates, three bullets each, stack |
+| `src/content/projects.ts` | The three case studies (problem, approach, decision, stack, result, screenshot alt text) |
+| `src/content/freelance.ts` | Every freelance site: name, URL, optional case study slug |
+| `src/content/stack.ts` | Named technologies by group |
 
-### Contact links
+Search for `TODO(real data)` to find every place that still needs a real number, quote or link. Fields left `undefined` are not rendered.
 
-Email, GitHub and LinkedIn live in `links` in `src/content/site.ts`. Setting any of them to an empty string renders the related buttons in a disabled "coming soon" state instead of linking to something broken.
+## Screenshots
 
-Empty experience fields (`period`, `location`, `highlights`, `stack`) are hidden rather than shown blank.
+`npm run previews` opens each case study's live site in a local Chrome/Edge, saves desktop (1440px) and mobile (390px) WebP screenshots to `public/projects/`, and records dimensions and blur placeholders in `src/content/previews.generated.json`. Pass slugs to capture only some.
 
-### Adding a project
+## Resume
 
-1. Add an entry to `src/content/projects.ts`:
-   ```ts
-   {
-     slug: "my-project",
-     name: "My Project",
-     url: "https://example.com",
-     categories: ["web", "freelance"], // web | full-stack | dashboard | freelance | ai
-     featured: true,     // large card in "Things I've built"
-     spotlight: false,   // large card at the top of "Freelance & Client Work"
-     description: "…",   // optional
-     stack: ["…"],       // optional — only technologies actually used
-     github: "https://github.com/…", // optional
-     caseStudy: { overview, problem, solution, development, result }, // optional
-   }
-   ```
-2. Capture screenshots: `npm run previews -- my-project`
-
-A project page is generated at `/projects/<slug>`. Without `caseStudy` content it shows "Case study coming soon."
-
-### Screenshots
-
-`npm run previews` opens every project's live site in your local Chrome/Edge (headless), saves desktop + mobile WebP screenshots to `public/projects/`, and writes blur placeholders to `src/content/previews.generated.json`. Pass slugs to capture only some projects. Set `CHROME_PATH` if the browser isn't found.
-
-To use your own screenshots instead, set `images: { desktop: "/projects/custom.webp" }` on the project.
-
-### GitHub activity
-
-The GitHub section appears automatically once `links.github` is set **and** GitHub returns data (contribution graph + repositories, refreshed daily). It is never rendered with placeholder data. Pick specific repositories with `githubActivity.featuredRepos`. Optionally set `GITHUB_TOKEN` to avoid API rate limits.
+`public/Kartik-Maurya-Resume.pdf`. Replace the file to update it.
 
 ## Deployment
 
-Set `NEXT_PUBLIC_SITE_URL` (e.g. `https://kartikmaurya.com`) so canonical URLs, the sitemap and Open Graph images use the real domain. On Vercel the production URL is detected automatically.
-
-## Structure
-
-```
-src/
-  app/                 routes, metadata, OG images, sitemap, robots
-  components/
-    layout/            nav, footer, command palette (⌘K / Ctrl K), scroll progress
-    sections/          one file per home-page section
-    projects/          project cards and the filterable archive
-    visuals/           hero system graph, Agentic AI flow
-    ui/                buttons, frames, shared primitives
-  content/             ← edit these
-  lib/                 helpers
-scripts/capture-previews.mjs
-```
+The canonical URL defaults to `https://kartikm.in`. Set `NEXT_PUBLIC_SITE_URL` to override it, for example on a preview deployment.

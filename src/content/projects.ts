@@ -1,118 +1,79 @@
-import type { Project, ProjectCategory } from "./types";
+import type { CaseStudy } from "./types";
 
 /**
- * Project database.
+ * Selected work: three case studies, each with a page at /work/[slug].
  *
- * To add a project: append an entry, then run `npm run previews -- <slug>`
- * to capture its screenshots (or set `images` to your own).
+ * Stack and approach for the client sites were read from the live sites
+ * (bundles, headers, forms) in Sep 2026. Fields left undefined are not
+ * rendered. Every TODO needs real data from you.
  *
- * Fields you haven't written yet (description, stack, caseStudy) can stay
- * undefined — cards and case study pages hide or label them honestly.
+ * Screenshots: `npm run previews` (see scripts/capture-previews.mjs).
  */
-export const projects: Project[] = [
-  {
-    slug: "supriyapa",
-    name: "Supriyapa",
-    url: "https://supriyapa.com",
-    categories: ["web", "freelance"],
-    featured: true,
-  },
-  {
-    slug: "bombay-lab",
-    name: "Bombay Lab",
-    url: "https://bombaylab.in",
-    categories: ["web", "freelance"],
-  },
+export const projects: CaseStudy[] = [
   {
     slug: "yumedics-dashboard",
-    name: "YuMedics Dashboard",
+    title: "Yumedics Command Center",
+    client: "Yumedics and Yuderma",
+    kind: "Operations dashboard",
+    year: "2025",
+    role: "AI Engineer Intern, Yumedics Labs",
     url: "https://yumedics-dashboard.vercel.app",
-    categories: ["dashboard", "web", "freelance"],
-    featured: true,
+    summary:
+      "An operations dashboard for a 15-person field team that brings in invoices from Gmail and WhatsApp, so nobody retypes them.",
+    // TODO(real data): the problem in the founders' own words, e.g. { text: "…", author: "Name, role" }.
+    quote: undefined,
+    problem: "Invoices reached the field team through Gmail and WhatsApp, and each one had to be entered by hand.",
+    approach:
+      "I built the dashboard as a web app on Vercel that uses Google Sheets as its data store through a Google Apps Script endpoint, with SheetJS for Excel files. Role-based access control limits what each person can see, and activity is tracked in real time.",
+    // TODO(real data): one decision and why, e.g. why Google Sheets and Apps Script instead of a database.
+    decision: undefined,
+    stack: ["JavaScript", "HTML", "CSS", "Google Apps Script", "Google Sheets", "SheetJS", "Vercel"],
+    // TODO(real data): add a number, e.g. invoices processed per week or hours saved.
+    result: "Manual data entry is gone from the invoicing workflow.",
+    alt: {
+      desktop:
+        "Yumedics Command Center on desktop: a stock overview synced live from Google Sheets, with summary counts above a list of products and their stock levels.",
+      mobile: "Yumedics Command Center on a phone: the same stock summary and product list with a bottom tab bar.",
+    },
   },
   {
-    slug: "aahaar",
-    name: "Aahaar",
-    url: "https://aahaar.com",
-    categories: ["web", "freelance"],
-    spotlight: true,
-  },
-  {
-    slug: "cooking-lunch",
-    name: "Cooking Lunch",
-    url: "https://cookinglunch.be",
-    categories: ["web", "freelance"],
-  },
-  {
-    slug: "shaant-andoori",
-    name: "Shaant Andoori",
-    url: "https://shaantandoori.be",
-    categories: ["web", "freelance"],
-    spotlight: true,
+    slug: "supriyapa",
+    title: "Supriyapa",
+    client: "Supriyapa",
+    kind: "Online clothing store",
+    // TODO(real data): launch year.
+    url: "https://supriyapa.com",
+    summary: "An online clothing store with product collections, a wishlist, a B2B page and payments through Razorpay.",
+    // TODO(real data): the client's problem in their words.
+    approach:
+      "The storefront is a React single-page app built with Vite and Tailwind CSS. It loads products from the store's own REST API, hands checkout to Razorpay, and is served by nginx on an Ubuntu server.",
+    // TODO(real data): one decision and why, plus the backend language and database.
+    stack: ["React", "Vite", "Tailwind CSS", "Axios", "REST API", "Razorpay", "nginx", "Ubuntu"],
+    // TODO(real data): result, e.g. orders in the first month.
+    alt: {
+      desktop:
+        "Supriyapa homepage on desktop: navigation for the collection, wishlist, about and B2B pages, and a featured t-shirt with a Shop Now button and its price in rupees.",
+      mobile: "Supriyapa on a phone: the featured t-shirt slide above the latest collection.",
+    },
   },
   {
     slug: "lataj",
-    name: "Lataj",
+    title: "La Taj",
+    client: "La Taj, Indian restaurant in Ieper",
+    kind: "Restaurant website",
+    // TODO(real data): launch year.
     url: "https://lataj.be",
-    categories: ["web", "freelance"],
-    featured: true,
+    summary: "A restaurant site in Dutch, English and French with the menu, an online ordering page and a table reservation form.",
+    // TODO(real data): the owner's problem in their words.
+    approach:
+      "Pages are rendered on the server in Dutch, English and French, and hreflang tags point search engines to the right language for each visitor. The reservation form asks for name, phone, email, date, time and party size, and posts to the server with a CSRF token. Google Analytics 4 tracks visits.",
+    // TODO(real data): one decision and why, plus the backend language.
+    stack: ["Server-rendered HTML", "nginx", "Google Analytics 4"],
+    // TODO(real data): result, e.g. reservations per week through the form.
+    alt: {
+      desktop:
+        "La Taj homepage on desktop, in Dutch: the headline 'Een vleugje India in het hart van Ieper' over a spread of Indian dishes, with buttons to reserve a table, open the menu and order online.",
+      mobile: "La Taj on a phone: call, reservation and order buttons above the opening hours and address.",
+    },
   },
-  {
-    slug: "nora-indian",
-    name: "Nora Indian",
-    url: "https://noraindian.com",
-    categories: ["web", "freelance"],
-  },
-  {
-    slug: "nani-antwerp",
-    name: "Nani Antwerp",
-    url: "https://naniantwerp.be",
-    categories: ["web", "freelance"],
-  },
-  {
-    slug: "indian-curry-house",
-    name: "Indian Curry House",
-    url: "https://indiancurryhouse.be",
-    categories: ["web", "freelance"],
-  },
-  {
-    slug: "indish",
-    name: "Indish",
-    url: "https://indish.be",
-    categories: ["web", "freelance"],
-  },
-  {
-    slug: "le-soleil",
-    name: "Le Soleil",
-    url: "https://le-soleil.be",
-    categories: ["web", "freelance"],
-  },
-  {
-    slug: "frango-douro",
-    name: "Frango D'Ouro",
-    url: "https://frangodouro.be",
-    categories: ["web", "freelance"],
-    spotlight: true,
-  },
-  {
-    slug: "taste-tandoori",
-    name: "Taste Tandoori",
-    url: "https://tastetandoori.be",
-    categories: ["web", "freelance"],
-  },
-  {
-    slug: "india-taste",
-    name: "India Taste",
-    url: "https://indiataste.be",
-    categories: ["web", "freelance"],
-  },
-];
-
-export const categoryFilters: { id: ProjectCategory | "all"; label: string }[] = [
-  { id: "all", label: "All" },
-  { id: "web", label: "Web Development" },
-  { id: "full-stack", label: "Full-Stack" },
-  { id: "dashboard", label: "Dashboard" },
-  { id: "freelance", label: "Freelance" },
-  { id: "ai", label: "AI" },
 ];

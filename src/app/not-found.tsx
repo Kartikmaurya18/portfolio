@@ -1,20 +1,17 @@
-import { ButtonLink } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="relative isolate grid min-h-[85dvh] place-items-center overflow-hidden px-5 pt-24 pb-16 text-center">
-      <div aria-hidden="true" className="bg-grid mask-radial absolute inset-0 -z-10" />
-      <div>
-        <p className="font-mono text-sm text-accent">404</p>
-        <h1 className="text-gradient mt-4 text-5xl font-semibold tracking-[-0.04em] sm:text-6xl">This page doesn&apos;t exist.</h1>
-        <p className="mt-4 text-muted">The link may be broken, or the page may have moved.</p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <ButtonLink href="/">Back home</ButtonLink>
-          <ButtonLink href="/projects" variant="secondary">
-            View projects
-          </ButtonLink>
-        </div>
-      </div>
+    <section className="page py-32 lg:py-48">
+      <p className="meta">404</p>
+      <h1 className="mt-4 text-[clamp(2.5rem,6vw,4.5rem)] leading-none font-semibold tracking-[-0.04em]">
+        Nothing at this address.
+      </h1>
+      <p className="mt-6 text-lg text-muted">
+        <Link href="/" className="link text-fg">
+          Back to the homepage
+        </Link>
+      </p>
     </section>
   );
 }

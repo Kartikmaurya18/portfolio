@@ -1,8 +1,8 @@
 /**
- * Captures desktop + mobile screenshots of every project's live website with a
+ * Captures desktop + mobile screenshots of each case study's live site with a
  * locally installed Chrome/Edge, converts them to WebP and writes a manifest.
  *
- *   npm run previews                 # all projects
+ *   npm run previews                 # every case study
  *   npm run previews -- supriyapa    # only the given slugs
  *
  * Needs Node >= 22.18 (imports the TypeScript project list directly) and Chrome,
@@ -95,7 +95,7 @@ async function capture(browser, url, viewport, file) {
 
 async function processProject(browser, project, tmp) {
   if (!(await isReachable(project.url))) {
-    console.warn(`✗ ${project.slug}: ${project.url} is unreachable — skipped`);
+    console.warn(`✗ ${project.slug}: ${project.url} is unreachable, skipped`);
     return null;
   }
   const entry = {};
@@ -130,22 +130,22 @@ async function main() {
 
   const browser = findBrowser();
   const tmp = await mkdtemp(path.join(os.tmpdir(), "previews-"));
-  const manifest = existsSync(manifestPath)
-    ? JSON.parse(await readFile(manifestPath, "utf8"))
-    : {};
+  const manifest = existsSync(manifestPath) ? JSON.parse(await readFile(manifestPath, "utf8")) : {};
 
   const queue = [...targets];
   const worker = async () => {
     for (let p = queue.shift(); p; p = queue.shift()) {
       const entry = await processProject(browser, p, tmp);
       if (entry) manifest[p.slug] = entry;
-      else if (!only.length) delete manifest[p.slug];
     }
   };
   await Promise.all(Array.from({ length: 3 }, worker));
 
-  const sorted = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)));
-  await writeFile(manifestPath, JSON.stringify(sorted, null, 2) + "\n");
+  const slugs = new Set(projects.map((p) => p.slug));
+  const kept = Object.entries(manifest)
+    .filter(([slug]) => slugs.has(slug))
+    .sort(([a], [b]) => a.localeCompare(b));
+  await writeFile(manifestPath, JSON.stringify(Object.fromEntries(kept), null, 2) + "\n");
   await rm(tmp, { recursive: true, force: true });
   console.log(`Manifest written: ${path.relative(root, manifestPath)}`);
 }
