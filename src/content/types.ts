@@ -34,7 +34,7 @@ export interface CaseStudy {
 
 export interface BuiltItem {
   name: string;
-  /** One sentence. */
+  /** One or two sentences. */
   description: string;
   url: string;
   /** Text of the outbound link. Defaults to "open". */

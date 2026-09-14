@@ -22,10 +22,8 @@ export const built: BuiltItem[] = [
   },
   {
     name: "Stocky",
-    // TODO(real data): your resume describes client inquiries and laboratory sample bookings,
-    // but the linked repo doesn't contain that code. Link the code that does, then say so here.
     description:
-      "A Spring Boot, JPA/Hibernate and Angular business app based on the open-source Stocky project, which I fixed mid-migration, cleaned up and deployed to production with Docker on Railway.",
+      "A multi-store retail and inventory system (POS with light ERP) covering products, stock, sales, customers, employees and reports behind role-based access.",
     url: "https://stocks-production-55e8.up.railway.app",
     linkLabel: "demo",
     code: "https://github.com/Kartikmaurya18/Stocks",
