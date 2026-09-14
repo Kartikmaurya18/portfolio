@@ -1,6 +1,6 @@
 # kartikm.in
 
-Portfolio of Kartik Maurya. Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4. Every page is statically prerendered; the only client JavaScript is a small scroll-reveal observer.
+Portfolio of Kartik Maurya. Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4. One narrow column of plain text; every page is statically prerendered.
 
 ```bash
 npm install
@@ -15,17 +15,17 @@ Content lives in typed data files. Components never hold copy.
 
 | File | What it holds |
 | --- | --- |
-| `src/content/site.ts` | Name, links, hero sentence, About (max three sentences), freelance intro, contact line |
-| `src/content/experience.ts` | Roles, dates, three bullets each, stack |
-| `src/content/projects.ts` | The three case studies (problem, approach, decision, stack, result, screenshot alt text) |
-| `src/content/freelance.ts` | Every freelance site: name, URL, optional case study slug |
-| `src/content/stack.ts` | Named technologies by group |
+| `src/content/site.ts` | Name, links and the homepage copy: intro, How I got here, Now, Elsewhere, the contact line and the footer |
+| `src/content/experience.ts` | What I've worked on: one paragraph per role |
+| `src/content/built.ts` | Things I built on the side: name, one sentence, link, optional case study |
+| `src/content/freelance.ts` | Every client website. Sites not in `built.ts` are listed in one sentence under that section |
+| `src/content/projects.ts` | The case studies at `/work/[slug]` (problem, approach, decision, stack, result, screenshot alt text) |
 
-Search for `TODO(real data)` to find every place that still needs a real number, quote or link. Fields left `undefined` are not rendered.
+Search for `TODO(real data)` to find every place that still needs a real number, quote, link or your own words. Fields left `undefined` are not rendered.
 
 ## Screenshots
 
-`npm run previews` opens each case study's live site in a local Chrome/Edge, saves desktop (1440px) and mobile (390px) WebP screenshots to `public/projects/`, and records dimensions and blur placeholders in `src/content/previews.generated.json`. Pass slugs to capture only some.
+`npm run previews` opens each case study's live site in a local Chrome/Edge, saves desktop (1440px) and mobile (390px) WebP screenshots to `public/projects/`, and records dimensions and blur placeholders in `src/content/previews.generated.json`. Pass slugs to capture only some. The screenshots appear on the case study pages.
 
 ## Resume
 

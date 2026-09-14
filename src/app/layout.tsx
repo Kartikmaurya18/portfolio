@@ -1,13 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
-import { Reveal } from "@/components/reveal";
+import { Inter } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const sans = Hanken_Grotesk({ variable: "--font-hanken", subsets: ["latin"] });
-const mono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"], weight: ["400", "500"] });
+const sans = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -26,33 +23,18 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0c0c0d",
+  themeColor: "#0a0a0a",
   colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      data-scroll-behavior="smooth"
-      className={`${sans.variable} ${mono.variable}`}
-      suppressHydrationWarning
-    >
-      <head>
-        {/* Scroll reveal styles apply only when JS is running. */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
-      </head>
+    <html lang="en" data-scroll-behavior="smooth" className={sans.variable}>
       <body className="min-h-dvh">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-fg focus:px-4 focus:py-2 focus:text-bg"
-        >
-          Skip to content
-        </a>
-        <SiteHeader />
-        <main id="main">{children}</main>
+        <main id="main" className="column pt-16 pb-20 sm:pt-24">
+          {children}
+        </main>
         <SiteFooter />
-        <Reveal />
       </body>
     </html>
   );

@@ -23,20 +23,20 @@ export default async function CaseStudyOpenGraphImage({ params }: { params: Prom
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          backgroundColor: "#0c0c0d",
-          color: "#ededea",
+          backgroundColor: "#0a0a0a",
+          color: "#f2f2f2",
         }}
       >
-        <div style={{ display: "flex", fontSize: 26, color: "#8a8a85" }}>{`Case study · ${project?.kind ?? ""}`}</div>
+        <div style={{ display: "flex", fontSize: 26, color: "#8a8a8a" }}>{`Case study · ${project?.kind ?? ""}`}</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontSize: 112, fontWeight: 700, letterSpacing: -5, lineHeight: 0.95 }}>
+          <div style={{ display: "flex", fontSize: 112, fontWeight: 600, letterSpacing: -4, lineHeight: 0.95 }}>
             {project?.title ?? site.name}
           </div>
-          <div style={{ display: "flex", marginTop: 28, fontSize: 36, color: "#a6a6a1" }}>{project?.client ?? ""}</div>
+          <div style={{ display: "flex", marginTop: 28, fontSize: 36, color: "#c9c9c9" }}>{project?.client ?? ""}</div>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, color: "#8a8a85" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, color: "#8a8a8a" }}>
           <div style={{ display: "flex" }}>{site.name}</div>
-          <div style={{ display: "flex", color: "#ff9b54" }}>{project ? project.url.replace(/^https?:\/\//, "") : ""}</div>
+          <div style={{ display: "flex" }}>{project ? project.url.replace(/^https?:\/\//, "") : ""}</div>
         </div>
       </div>
     ),

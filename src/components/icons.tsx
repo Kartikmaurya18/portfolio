@@ -22,18 +22,6 @@ function Stroke({ children, ...props }: IconProps) {
   );
 }
 
-export const ArrowRight = (p: IconProps) => (
-  <Stroke {...p}>
-    <path d="M5 12h14M13 6l6 6-6 6" />
-  </Stroke>
-);
-
-export const ArrowUpRight = (p: IconProps) => (
-  <Stroke {...p}>
-    <path d="M7 17 17 7M8 7h9v9" />
-  </Stroke>
-);
-
 export const Download = (p: IconProps) => (
   <Stroke {...p}>
     <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />

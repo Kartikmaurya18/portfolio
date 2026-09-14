@@ -9,11 +9,14 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  // Links from the previous version of the site.
+  // Links from the previous version of the site. Redirects run before /public,
+  // and the screenshots live in /public/projects, so the catch-all skips any
+  // path with a dot in it.
   async redirects() {
     return [
       { source: "/projects/:slug(yumedics-dashboard|supriyapa|lataj)", destination: "/work/:slug", permanent: true },
-      { source: "/projects/:path*", destination: "/", permanent: true },
+      { source: "/projects", destination: "/", permanent: true },
+      { source: "/projects/:path([^.]*)", destination: "/", permanent: true },
     ];
   },
   async headers() {

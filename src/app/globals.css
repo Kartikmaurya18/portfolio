@@ -3,29 +3,23 @@
 :root {
   color-scheme: dark;
 
-  --bg: #0c0c0d;
-  --fg: #ededea;
-  --muted: #a6a6a1;
-  --subtle: #8a8a85;
-  --rule: rgb(255 255 255 / 0.1);
-  --rule-strong: rgb(255 255 255 / 0.2);
-  --stage: #161618;
-  /* The one accent: links, focus rings and the period after the name. */
-  --accent: #ff9b54;
+  --bg: #0a0a0a;
+  --fg: #f2f2f2;
+  --body: #c9c9c9;
+  --muted: #8a8a8a;
+  --rule: #262626;
+  --rule-strong: #4a4a4a;
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
+  --color-body: var(--body);
   --color-muted: var(--muted);
-  --color-subtle: var(--subtle);
   --color-rule: var(--rule);
   --color-rule-strong: var(--rule-strong);
-  --color-stage: var(--stage);
-  --color-accent: var(--accent);
 
-  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -35,29 +29,32 @@
 
   body {
     background-color: var(--bg);
-    color: var(--fg);
+    color: var(--body);
     font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: var(--accent);
+    background-color: var(--fg);
     color: var(--bg);
   }
 
   :focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--fg);
     outline-offset: 3px;
   }
 
   [id] {
-    scroll-margin-top: 4.5rem;
+    scroll-margin-top: 2rem;
   }
 
   h1,
   h2,
   h3 {
+    color: var(--fg);
     text-wrap: balance;
   }
 
@@ -68,113 +65,50 @@
 }
 
 @layer components {
-  .page {
+  /* The whole site is one narrow column. */
+  .column {
     margin-inline: auto;
     width: 100%;
-    max-width: 78rem;
+    max-width: 42.5rem;
     padding-inline: 1.25rem;
   }
 
-  @media (min-width: 40rem) {
-    .page {
-      padding-inline: 2rem;
-    }
+  .label {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
-  @media (min-width: 64rem) {
-    .page {
-      padding-inline: 3rem;
-    }
-  }
-
-  /* 12 columns from 64rem; the first three are the rail. */
-  .grid-editorial {
-    display: grid;
-    column-gap: 2rem;
-    row-gap: 1.75rem;
-  }
-
-  @media (min-width: 64rem) {
-    .grid-editorial {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-    }
-  }
-
-  .meta {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    color: var(--subtle);
+  .link,
+  .link-muted {
+    text-decoration-line: underline;
+    text-decoration-color: var(--rule-strong);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    transition:
+      color 150ms ease-out,
+      text-decoration-color 150ms ease-out;
   }
 
   .link {
-    text-decoration-line: underline;
-    text-decoration-color: var(--accent);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.3em;
-    transition: color 150ms ease-out;
-  }
-
-  .link:hover {
-    color: var(--accent);
-  }
-
-  .btn {
-    display: inline-flex;
-    height: 2.75rem;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 9999px;
-    padding-inline: 1.25rem;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    white-space: nowrap;
-    transition:
-      background-color 150ms ease-out,
-      box-shadow 150ms ease-out;
-  }
-
-  .btn-primary {
-    background-color: var(--fg);
-    color: var(--bg);
-  }
-
-  .btn-primary:hover {
-    background-color: #fff;
-  }
-
-  .btn-outline {
     color: var(--fg);
-    box-shadow: inset 0 0 0 1px var(--rule-strong);
   }
 
-  .btn-outline:hover {
-    box-shadow: inset 0 0 0 1px var(--fg);
+  .link-muted {
+    color: var(--muted);
   }
 
-  /* Fade-and-rise, only once JS has confirmed it can reveal the content. */
-  .js [data-reveal] {
-    opacity: 0;
-    transform: translate3d(0, 8px, 0);
-    transition:
-      opacity 280ms ease-out,
-      transform 280ms ease-out;
-  }
-
-  .js [data-reveal][data-inview] {
-    opacity: 1;
-    transform: none;
+  .link:hover,
+  .link-muted:hover {
+    color: var(--fg);
+    text-decoration-color: var(--fg);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .js [data-reveal] {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 }

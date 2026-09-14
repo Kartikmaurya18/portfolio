@@ -22,38 +22,45 @@ export const site = {
     "Software Development Engineer at In-Solutions Global. I build Spring Boot services for Punjab National Bank and Saraswat Bank, and websites for restaurants and local businesses in Belgium and India.",
 };
 
-export const nav = [
-  { id: "experience", label: "Experience" },
-  { id: "work", label: "Work" },
-  { id: "freelance", label: "Freelance" },
-  { id: "stack", label: "Stack" },
-  { id: "contact", label: "Contact" },
-];
+/*
+ * Homepage copy, top to bottom. Roles are in experience.ts and projects in
+ * built.ts. Drafts written from the resume are marked TODO(real data):
+ * rewrite those in your own words.
+ */
 
-export const hero = {
-  /** One sentence on what you build. */
-  summary:
-    "I build Spring Boot services for Punjab National Bank and Saraswat Bank, and websites for restaurants and local businesses in Belgium and India.",
-  since: "Nov 2025",
-  /** TODO(real data): a real photo of you, e.g. "/kartik.webp" (portrait, at least 480×600). Empty hides it. */
-  photo: "",
+export const intro = {
+  /** The opening sentence, shown larger. It is the page's h1. */
+  lead: "I'm Kartik. I build backend services for banks, and websites for restaurants and small businesses in Belgium and India.",
+  body: `I'm a Software Development Engineer at In-Solutions Global in Mumbai, where I work in Java and Spring Boot on core banking software. Alongside that I've built ${freelance.length} websites for clients, and I'm learning to build AI agents that call tools and work over real data.`,
 };
 
-/** Three sentences at most. */
-export const about = [
-  "At In-Solutions Global I work on core banking software, and I led the migration of PNB Genie from an Apache Struts monolith to Spring Boot microservices.",
-  `Outside that job I have shipped ${freelance.length} websites, many of them for Indian restaurants in Belgium, including table reservations for La Taj and a Razorpay checkout for Supriyapa's online store.`,
-  "Next I want to build AI agents that call tools and work over real company data, so I'm learning LangGraph and retrieval-augmented generation.",
+// TODO(real data): how you actually got into software, in your own words.
+export const howIGotHere = [
+  "I studied Information Technology at TCET, University of Mumbai, and learned most of what I know by building things: Django and MERN projects first, then websites for real clients.",
+  "After that I picked up whatever the next job needed: Google Apps Script for an operations dashboard, React and Tailwind CSS for client sites, and Spring Boot and Oracle SQL for banking software.",
 ];
 
-export const freelanceIntro =
-  "Alongside my job I build websites for small businesses, mostly restaurants in Belgium, plus a metal testing lab in Mumbai and an online clothing store in India. Each name links to the site.";
+/** The sentence under "Things I built", around the list of remaining client sites. */
+export const builtMore = {
+  before: "I've also built sites for",
+  after: ", most of them restaurants in Belgium.",
+};
+
+export const now = [
+  "I'm based in Mumbai, working on core banking services at In-Solutions Global. Next I want to build AI agents that call tools and work over real company data, so I'm learning LangGraph and retrieval-augmented generation.",
+];
+
+export const elsewhere = [
+  { label: "Resume", href: links.resume, detail: "PDF", download: true },
+  { label: "GitHub", href: links.github, detail: "code" },
+  { label: "LinkedIn", href: links.linkedin, detail: "work history" },
+];
 
 export const contact = {
-  line: "Hiring for a backend role, or need a website for your business? Email me.",
+  line: "If you're hiring for a backend role or need a website for your business, email me at",
+  signOff: "Kartik",
 };
 
 export const footer = {
-  /** TODO(real data): a short note in your own words. Empty hides it. */
-  note: "",
+  note: "Built in Mumbai",
 };

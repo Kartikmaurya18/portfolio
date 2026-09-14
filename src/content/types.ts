@@ -1,11 +1,11 @@
 export interface Role {
   company: string;
-  title: string;
-  start: string;
-  end: string;
-  /** Aim for three, shaped "Built WHAT using STACK, which OUTCOME". */
-  bullets: string[];
-  stack?: string[];
+  /** e.g. "Nov 2025 – now". */
+  period: string;
+  /** Continues the sentence "At COMPANY (PERIOD), …". */
+  text: string;
+  /** Slug of a case study in projects.ts, if there is one. */
+  caseStudy?: string;
 }
 
 export interface CaseStudy {
@@ -18,7 +18,7 @@ export interface CaseStudy {
   year?: string;
   role?: string;
   url: string;
-  /** One or two sentences for the homepage and page intro. */
+  /** One or two sentences for the page intro. */
   summary: string;
   /** The problem in the client's or user's own words. */
   quote?: { text: string; author: string };
@@ -32,14 +32,22 @@ export interface CaseStudy {
   alt: { desktop: string; mobile: string };
 }
 
-export interface FreelanceSite {
+export interface BuiltItem {
   name: string;
+  /** One sentence. */
+  description: string;
   url: string;
+  /** Text of the outbound link. Defaults to "open". */
+  linkLabel?: string;
+  /** Source code, shown as a second "code" link after the main one. */
+  code?: string;
+  /** A login for the demo, shown publicly under the description. Use a restricted account. */
+  demoLogin?: { username: string; password: string };
   /** Slug of a case study in projects.ts, if there is one. */
   caseStudy?: string;
 }
 
-export interface StackGroup {
-  group: "Languages" | "Backend" | "Frontend" | "Data" | "Tools";
-  items: string[];
+export interface FreelanceSite {
+  name: string;
+  url: string;
 }

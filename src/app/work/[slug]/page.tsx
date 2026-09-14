@@ -3,11 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
-import { ArrowRight } from "@/components/icons";
+import { ExternalLink } from "@/components/external-link";
+import { Section } from "@/components/section";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
 import { getShots } from "@/lib/previews";
-import { cn, displayUrl } from "@/lib/utils";
+import { displayUrl } from "@/lib/utils";
 
 export const dynamicParams = false;
 
@@ -43,125 +44,97 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
 
   return (
     <article>
-      <header className="page pt-10 pb-14 lg:pt-16 lg:pb-20">
-        <Link href="/#work" className="meta link">
-          Selected work
-        </Link>
-        <div className="grid-editorial mt-12">
-          <div className="min-w-0 lg:col-span-9 lg:col-start-4 lg:row-start-1">
-            <p className="meta">{project.kind}</p>
-            <h1 className="mt-3 text-[clamp(2.75rem,8vw,6.5rem)] leading-[0.92] font-semibold tracking-[-0.055em]">
-              {project.title}
-            </h1>
-            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted">{project.summary}</p>
-          </div>
-          <dl className="meta grid grid-cols-[4rem_1fr] gap-y-1 lg:col-span-3 lg:col-start-1 lg:row-start-1 lg:self-end">
-            <dt>Client</dt>
-            <dd className="text-muted">{project.client}</dd>
-            {project.role && (
-              <>
-                <dt>Role</dt>
-                <dd className="text-muted">{project.role}</dd>
-              </>
-            )}
-            {project.year && (
-              <>
-                <dt>Year</dt>
-                <dd className="text-muted">{project.year}</dd>
-              </>
-            )}
-            <dt>Live</dt>
-            <dd>
-              <a href={project.url} target="_blank" rel="noopener noreferrer" className="link text-fg">
-                {displayUrl(project.url)}
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </dd>
-          </dl>
-        </div>
+      <Link href="/" className="text-sm text-muted transition-colors hover:text-fg">
+        <span aria-hidden="true">← </span>
+        {site.name}
+      </Link>
+
+      <header className="mt-12">
+        <p className="label">
+          {project.kind}
+          {project.year && ` · ${project.year}`}
+        </p>
+        <h1 className="mt-2 text-[1.75rem] leading-tight font-semibold tracking-[-0.01em]">{project.title}</h1>
+        <p className="mt-4 text-xl leading-[1.6] text-fg">{project.summary}</p>
       </header>
 
-      <div className="bg-stage">
-        <div className="mx-auto grid max-w-[96rem] items-start gap-8 px-4 py-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,15rem)] sm:px-10 sm:py-14 lg:gap-12 lg:px-20 lg:py-20">
-          {desktop && (
-            <figure className="min-w-0">
-              <Image
-                src={desktop.src}
-                width={desktop.width}
-                height={desktop.height}
-                alt={project.alt.desktop}
-                sizes="(min-width: 1536px) 1100px, (min-width: 640px) 72vw, 92vw"
-                loading="eager"
-                fetchPriority="high"
-                placeholder={desktop.blurDataURL ? "blur" : "empty"}
-                blurDataURL={desktop.blurDataURL}
-                className="block h-auto w-full rounded-[3px]"
-              />
-              <figcaption className="meta mt-3">Desktop, 1440px wide</figcaption>
-            </figure>
-          )}
+      <dl className="mt-8 border-b border-rule">
+        <Row label="Client">{project.client}</Row>
+        {project.role && <Row label="Role">{project.role}</Row>}
+        <Row label="Live">
+          <ExternalLink href={project.url} className="link">
+            {displayUrl(project.url)}
+          </ExternalLink>
+        </Row>
+      </dl>
+
+      {desktop && (
+        <div className="mt-10 grid items-end gap-4 sm:grid-cols-[minmax(0,1fr)_7.5rem]">
+          <Image
+            src={desktop.src}
+            width={desktop.width}
+            height={desktop.height}
+            alt={project.alt.desktop}
+            sizes="(min-width: 42.5rem) 504px, calc(100vw - 2.5rem)"
+            loading="eager"
+            fetchPriority="high"
+            placeholder={desktop.blurDataURL ? "blur" : "empty"}
+            blurDataURL={desktop.blurDataURL}
+            className="block h-auto w-full rounded-md border border-rule"
+          />
           {mobile && (
-            <figure className="mx-auto w-3/5 max-w-[15rem] sm:w-full">
-              <Image
-                src={mobile.src}
-                width={mobile.width}
-                height={mobile.height}
-                alt={project.alt.mobile}
-                sizes="(min-width: 640px) 15rem, 60vw"
-                placeholder={mobile.blurDataURL ? "blur" : "empty"}
-                blurDataURL={mobile.blurDataURL}
-                className="block h-auto w-full rounded-[10px]"
-              />
-              <figcaption className="meta mt-3">Phone, 390px wide</figcaption>
-            </figure>
+            <Image
+              src={mobile.src}
+              width={mobile.width}
+              height={mobile.height}
+              alt={project.alt.mobile}
+              sizes="7.5rem"
+              placeholder={mobile.blurDataURL ? "blur" : "empty"}
+              blurDataURL={mobile.blurDataURL}
+              className="hidden h-auto w-full rounded-xl border border-rule sm:block"
+            />
           )}
         </div>
-      </div>
+      )}
 
-      <div className="page pt-10 pb-6 lg:pt-16">
-        {(project.quote || project.problem) && (
-          <Block label="The problem">
-            {project.quote && (
-              <figure>
-                <blockquote className="text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.3] font-light">
-                  &ldquo;{project.quote.text}&rdquo;
-                </blockquote>
-                <figcaption className="meta mt-4">{project.quote.author}</figcaption>
-              </figure>
-            )}
-            {project.problem && (
-              <p className={cn("max-w-2xl text-xl leading-relaxed", project.quote && "mt-8 text-muted")}>{project.problem}</p>
-            )}
-          </Block>
-        )}
-        {project.approach && (
-          <Block label="What I built">
-            <p className="max-w-2xl text-xl leading-relaxed">{project.approach}</p>
-          </Block>
-        )}
-        {project.decision && (
-          <Block label="One decision">
-            <p className="max-w-2xl text-xl leading-relaxed">{project.decision.choice}</p>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{project.decision.reasoning}</p>
-          </Block>
-        )}
-        <Block label="Stack">
-          <p className="text-lg leading-relaxed">{project.stack.join(" · ")}</p>
-        </Block>
-        {project.result && (
-          <Block label="Result">
-            <p className="max-w-3xl text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.3] font-light">{project.result}</p>
-          </Block>
-        )}
-      </div>
+      {(project.quote || project.problem) && (
+        <Section id="problem" title="The problem">
+          {project.quote && (
+            <figure>
+              <blockquote className="text-fg">&ldquo;{project.quote.text}&rdquo;</blockquote>
+              <figcaption className="mt-2 text-sm text-muted">{project.quote.author}</figcaption>
+            </figure>
+          )}
+          {project.problem && <p>{project.problem}</p>}
+        </Section>
+      )}
+      {project.approach && (
+        <Section id="approach" title="What I built">
+          <p>{project.approach}</p>
+        </Section>
+      )}
+      {project.decision && (
+        <Section id="decision" title="One decision">
+          <p className="text-fg">{project.decision.choice}</p>
+          <p>{project.decision.reasoning}</p>
+        </Section>
+      )}
+      <Section id="stack" title="Stack">
+        <p>{project.stack.join(" · ")}</p>
+      </Section>
+      {project.result && (
+        <Section id="result" title="Result">
+          <p>{project.result}</p>
+        </Section>
+      )}
 
       {next.slug !== project.slug && (
-        <nav aria-label="Next case study" className="border-t border-rule">
-          <Link href={`/work/${next.slug}`} className="page group flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 py-12 lg:py-16">
-            <span className="meta">Next case study</span>
-            <span className="flex items-center gap-3 text-[clamp(1.75rem,4vw,3rem)] font-semibold tracking-[-0.04em] transition-colors group-hover:text-accent">
+        <nav aria-label="Next case study" className="mt-14 border-y border-rule">
+          <Link href={`/work/${next.slug}`} className="group flex items-baseline justify-between gap-4 py-3.5">
+            <span className="text-muted">Next case study</span>
+            <span className="text-fg decoration-rule-strong underline-offset-4 group-hover:underline">
               {next.title}
-              <ArrowRight className="size-6 shrink-0" />
+              <span aria-hidden="true"> →</span>
             </span>
           </Link>
         </nav>
@@ -170,11 +143,11 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
   );
 }
 
-function Block({ label, children }: { label: string; children: ReactNode }) {
+function Row({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <section data-reveal className="grid-editorial border-t border-rule py-10 first:border-t-0 lg:py-14">
-      <h2 className="meta tracking-[0.12em] uppercase lg:col-span-3 lg:pt-2">{label}</h2>
-      <div className="min-w-0 lg:col-span-9">{children}</div>
-    </section>
+    <div className="flex items-baseline justify-between gap-6 border-t border-rule py-3">
+      <dt className="text-muted">{label}</dt>
+      <dd className="min-w-0 text-right text-fg">{children}</dd>
+    </div>
   );
 }
