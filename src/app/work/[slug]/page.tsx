@@ -43,7 +43,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
   const next = projects[(projects.indexOf(project) + 1) % projects.length];
 
   return (
-    <article>
+    <article className="case-study">
       <Link href="/" className="text-sm text-muted transition-colors hover:text-fg">
         <span aria-hidden="true">← </span>
         {site.name}

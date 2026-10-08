@@ -2,8 +2,12 @@ export interface Role {
   company: string;
   /** e.g. "Nov 2025 – now". */
   period: string;
+  /** Optional external client linked from the role description. */
+  client?: string;
   /** Continues the sentence "At COMPANY (PERIOD), …". */
   text: string;
+  /** Additional paragraphs that give more detail about this role. */
+  details?: string[];
   /** Slug of a case study in projects.ts, if there is one. */
   caseStudy?: string;
 }

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#0b1110",
   colorScheme: "dark",
 };
 
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={sans.variable}>
       <body className="min-h-dvh">
-        <main id="main" className="column pt-16 pb-20 sm:pt-24">
+        <main id="main" className="site-main">
           {children}
         </main>
         <SiteFooter />
