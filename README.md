@@ -29,7 +29,7 @@ Search for `TODO(real data)` to find every place that still needs a real number,
 
 ## Resume
 
-`public/Kartik-Maurya-Resume.pdf` (the AI-focused resume, linked from the hero and contact). Replace the file to update it.
+`public/kartik_resume.pdf` (linked from the hero and contact; visitors download it as `Kartik-Maurya-Resume.pdf`). Replace the file, keeping the name, to update it.
 
 ## Deployment
 
