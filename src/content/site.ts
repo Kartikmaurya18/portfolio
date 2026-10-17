@@ -4,7 +4,7 @@ export const links = {
   email: "kartikmaurya18@gmail.com",
   github: "https://github.com/Kartikmaurya18",
   linkedin: "https://www.linkedin.com/in/kartik-maurya-0a8271259",
-  resume: "/kartik_resume.pdf",
+  resume: "/Kartik-Maurya-Resume.pdf",
 };
 
 export const resumeFileName = "Kartik-Maurya-Resume.pdf";
