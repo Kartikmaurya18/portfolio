@@ -26,7 +26,7 @@ export default function OpenGraphImage() {
             {site.name}
           </div>
           <div style={{ display: "flex", marginTop: 32, fontSize: 40, color: "#c9c9c9" }}>
-            {`${site.role} at ${site.company}`}
+            {site.tagline}
           </div>
         </div>
         <div style={{ display: "flex", fontSize: 26, color: "#8a8a8a" }}>{site.location}</div>

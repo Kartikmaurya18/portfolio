@@ -1,46 +1,43 @@
-import type { BuiltItem } from "./types";
+import type { FeaturedProject } from "./types";
 
 /**
- * "Things I built on the side": client sites worth a line of their own and
- * personal projects. Every other site in freelance.ts is listed in one
- * sentence under this list.
+ * Featured projects, shown in this order. Client sites without a card here are
+ * listed in one sentence under the cards (see freelance.ts).
  */
-export const built: BuiltItem[] = [
+export const featured: FeaturedProject[] = [
   {
     name: "Supriyapa",
-    description:
-      "An online clothing store with collections, a wishlist, a B2B page and Razorpay checkout, built with React, Vite and Tailwind CSS.",
-    url: "https://supriyapa.com",
+    description: "An online clothing store with collections, a wishlist, a B2B page and Razorpay checkout.",
+    contribution: "Built the React storefront.",
+    stack: ["React", "Vite", "Tailwind CSS", "Razorpay"],
+    demo: "https://supriyapa.com",
     caseStudy: "supriyapa",
-  },
-  {
-    name: "La Taj",
-    description:
-      "A site for an Indian restaurant in Ieper, in Dutch, English and French, with the menu, online ordering and a table reservation form.",
-    url: "https://lataj.be",
-    caseStudy: "lataj",
-  },
-  {
-    name: "Stocky",
-    description:
-      "A multi-store retail and inventory system (POS with light ERP) covering products, stock, sales, customers, employees and reports behind role-based access.",
-    url: "https://stocks-production-55e8.up.railway.app",
-    linkLabel: "demo",
-    code: "https://github.com/Kartikmaurya18/Stocks",
-    // TODO(real data): this is the app's system account, which can change any user's password
-    // and disable accounts. Create a view-only demo user in Stocky and put its login here instead.
-    demoLogin: { username: "system_usr", password: "dummy@Pask" },
   },
   {
     name: "OptionOS",
     description:
-      "A live dashboard for BTC option straddles on Delta Exchange, with a FastAPI backend streaming prices over WebSockets to a React app that keeps a day of ticks in IndexedDB.",
-    url: "https://github.com/Kartikmaurya18/OptionOS",
-    linkLabel: "code",
+      "A live dashboard for BTC option straddles on Delta Exchange. A FastAPI backend streams prices over WebSockets to a React app.",
+    contribution: "Built the streaming backend and the dashboard.",
+    stack: ["Python", "FastAPI", "WebSockets", "React"],
+    code: "https://github.com/Kartikmaurya18/OptionOS",
   },
   {
-    name: "Bombay Lab",
-    description: "A website for a metal testing lab in Mumbai.",
-    url: "https://bombaylab.in",
+    name: "Stocky",
+    description:
+      "A multi-store retail and inventory system with point of sale, covering stock, sales, customers, employees and reports behind role-based access.",
+    contribution: "Fixed a broken migration, removed legacy code and deployed the open-source base with Docker on Railway.",
+    stack: ["Java", "Spring Boot", "Angular", "Docker"],
+    // TODO(real data): the Railway demo returned "Application not found" on 2026-10-17. Redeploy it,
+    // then add `demo` back, with a view-only login rather than the app's system account.
+    code: "https://github.com/Kartikmaurya18/Stocks",
+  },
+  {
+    name: "Homecheff",
+    description:
+      "A personalised health and recipe app. It generates recipes from text or a photo with an LLM and answers questions in a chat assistant.",
+    contribution: "Built the Spring Boot backend: REST APIs, JWT auth, Groq LLM integration and WebSocket chat, deployed on Render.",
+    stack: ["Groq LLM API", "Java", "Spring Boot", "PostgreSQL", "React"],
+    demo: "https://finalyear-ebon.vercel.app",
+    code: "https://github.com/Kartikmaurya18/finalyear",
   },
 ];

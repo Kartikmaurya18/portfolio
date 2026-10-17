@@ -24,7 +24,7 @@ export const projects: CaseStudy[] = [
     quote: undefined,
     problem: "Invoices reached the field team through Gmail and WhatsApp, and each one had to be entered by hand.",
     approach:
-      "I built the dashboard as a web app on Vercel that uses Google Sheets as its data store through a Google Apps Script endpoint, with SheetJS for Excel files. Role-based access control limits what each person can see, and activity is tracked in real time.",
+      "A web app on Vercel that stores data in Google Sheets through a Google Apps Script endpoint, with SheetJS for Excel files. Role-based access control limits what each person sees, and activity is tracked in real time.",
     // TODO(real data): one decision and why, e.g. why Google Sheets and Apps Script instead of a database.
     decision: undefined,
     stack: ["JavaScript", "HTML", "CSS", "Google Apps Script", "Google Sheets", "SheetJS", "Vercel"],
@@ -46,7 +46,7 @@ export const projects: CaseStudy[] = [
     summary: "An online clothing store with product collections, a wishlist, a B2B page and payments through Razorpay.",
     // TODO(real data): the client's problem in their words.
     approach:
-      "The storefront is a React single-page app built with Vite and Tailwind CSS. It loads products from the store's own REST API, hands checkout to Razorpay, and is served by nginx on an Ubuntu server.",
+      "A React single-page app built with Vite and Tailwind CSS. It loads products from the store's REST API, hands checkout to Razorpay, and is served by nginx on an Ubuntu server.",
     // TODO(real data): one decision and why, plus the backend language and database.
     stack: ["React", "Vite", "Tailwind CSS", "Axios", "REST API", "Razorpay", "nginx", "Ubuntu"],
     // TODO(real data): result, e.g. orders in the first month.
@@ -66,7 +66,7 @@ export const projects: CaseStudy[] = [
     summary: "A restaurant site in Dutch, English and French with the menu, an online ordering page and a table reservation form.",
     // TODO(real data): the owner's problem in their words.
     approach:
-      "Pages are rendered on the server in Dutch, English and French, and hreflang tags point search engines to the right language for each visitor. The reservation form asks for name, phone, email, date, time and party size, and posts to the server with a CSRF token. Google Analytics 4 tracks visits.",
+      "Server-rendered pages in Dutch, English and French, with hreflang tags so search engines show each visitor the right language. The reservation form collects name, phone, email, date, time and party size, and posts to the server with a CSRF token. Google Analytics 4 tracks visits.",
     // TODO(real data): one decision and why, plus the backend language.
     stack: ["Server-rendered HTML", "nginx", "Google Analytics 4"],
     // TODO(real data): result, e.g. reservations per week through the form.

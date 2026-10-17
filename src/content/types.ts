@@ -1,13 +1,12 @@
 export interface Role {
   company: string;
+  title: string;
   /** e.g. "Nov 2025 – now". */
   period: string;
-  /** Optional external client linked from the role description. */
-  client?: string;
-  /** Continues the sentence "At COMPANY (PERIOD), …". */
-  text: string;
-  /** Additional paragraphs that give more detail about this role. */
-  details?: string[];
+  /** One to three short bullets. Use {client} to link the optional client below. */
+  bullets: string[];
+  /** Optional external client linked wherever a bullet contains its name. */
+  client?: { name: string; url: string };
   /** Slug of a case study in projects.ts, if there is one. */
   caseStudy?: string;
 }
@@ -36,17 +35,17 @@ export interface CaseStudy {
   alt: { desktop: string; mobile: string };
 }
 
-export interface BuiltItem {
+export interface FeaturedProject {
   name: string;
-  /** One or two sentences. */
+  /** What the application does, in 25–45 words. */
   description: string;
-  url: string;
-  /** Text of the outbound link. Defaults to "open". */
-  linkLabel?: string;
-  /** Source code, shown as a second "code" link after the main one. */
+  /** One short sentence on what Kartik implemented. */
+  contribution: string;
+  stack: string[];
+  /** Live site or demo. Leave out when there is none. */
+  demo?: string;
+  /** Source code. */
   code?: string;
-  /** A login for the demo, shown publicly under the description. Use a restricted account. */
-  demoLogin?: { username: string; password: string };
   /** Slug of a case study in projects.ts, if there is one. */
   caseStudy?: string;
 }
@@ -54,4 +53,11 @@ export interface BuiltItem {
 export interface FreelanceSite {
   name: string;
   url: string;
+}
+
+export interface SkillGroup {
+  category: string;
+  /** Shown first and emphasised. */
+  core?: string[];
+  items: string[];
 }

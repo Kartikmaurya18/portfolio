@@ -1,4 +1,4 @@
-import { freelance } from "./freelance";
+import type { SkillGroup } from "./types";
 
 export const links = {
   email: "kartikmaurya18@gmail.com",
@@ -11,38 +11,61 @@ export const resumeFileName = "Kartik-Maurya-Resume.pdf";
 
 export const site = {
   name: "Kartik Maurya",
+  /** Job title at the current employer. */
   role: "Software Development Engineer",
   company: "In-Solutions Global",
   location: "Mumbai, India",
+  tagline: "AI Engineer · LLM products and Java backends",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kartikm.in",
-  title: "Kartik Maurya · Software Development Engineer",
+  title: "Kartik Maurya · AI Engineer, LLM Products and Java Backends",
   description:
-    "Software Development Engineer at In-Solutions Global, building core banking and payments services including a Bharat Connect COU. I build websites for restaurants and small businesses in Belgium and India.",
+    "Kartik Maurya is an AI Engineer in Mumbai building LLM-powered products on a Java and Spring Boot backend foundation.",
 };
 
-export const intro = {
-  lead: "I'm Kartik. I build backend services for banks and payment products, and websites for restaurants and small businesses in Belgium and India.",
-  body: `I'm a Software Development Engineer at In-Solutions Global in Mumbai, where I work in Java and Spring Boot on core banking and payments software. Alongside that I've built ${freelance.length} websites for clients, and I'm learning to build AI agents that call tools and work over real data.`,
+export const hero = {
+  eyebrow: "AI Engineer · Mumbai, India",
+  /** Plain text, then the part set in the accent colour. */
+  headline: ["I build AI products that", "solve real problems."],
+  body: "LLM-powered apps on a solid Java and Spring Boot backend foundation.",
 };
 
-export const builtMore = {
-  before: "I've also built sites for",
-  after: ", most of them restaurants in Belgium.",
+export const about =
+  "I'm an AI engineer with a backend foundation. At In-Solutions Global I build Java and Spring Boot banking services; on my own I build LLM-powered products and am learning RAG and agents.";
+
+export const clientSites = {
+  before: "Client websites:",
+  after: ".",
 };
 
-export const now = [
-  "I'm based in Mumbai, working on core banking and payments services at In-Solutions Global, including a Bharat Connect COU for Consumer Choice Payments. Next I want to build AI agents that call tools and work over real company data, so I'm learning LangGraph and retrieval-augmented generation.",
-];
-
-export const elsewhere = [
-  { label: "Resume", href: links.resume, detail: "PDF", download: true },
-  { label: "GitHub", href: links.github, detail: "code" },
-  { label: "LinkedIn", href: links.linkedin, detail: "work history" },
+export const skills: SkillGroup[] = [
+  {
+    category: "AI and LLMs",
+    core: ["LLMs"],
+    items: ["RAG", "LangGraph", "AI agents"],
+  },
+  {
+    category: "Languages",
+    core: ["Python", "Java"],
+    items: ["SQL", "TypeScript"],
+  },
+  {
+    category: "Backend and APIs",
+    core: ["Spring Boot", "REST APIs"],
+    items: ["FastAPI", "JPA/Hibernate", "Microservices", "Spring Security", "WebSockets"],
+  },
+  {
+    category: "Frontend",
+    items: ["React", "Angular"],
+  },
+  {
+    category: "Databases and Infrastructure",
+    items: ["PostgreSQL", "Oracle SQL", "Docker", "Kafka", "AWS", "Git", "Maven", "Postman"],
+  },
 ];
 
 export const contact = {
-  line: "If you're hiring for a backend role or need a website for your business, email me at",
-  signOff: "Kartik",
+  heading: "Have a project or engineering opportunity?",
+  line: "Let's connect.",
 };
 
 export const footer = { note: "Built in Mumbai" };

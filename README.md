@@ -1,6 +1,6 @@
 # kartikm.in
 
-Portfolio of Kartik Maurya. Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4. One narrow column of plain text; every page is statically prerendered.
+Portfolio of Kartik Maurya. Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4. Every page is statically prerendered.
 
 ```bash
 npm install
@@ -15,10 +15,10 @@ Content lives in typed data files. Components never hold copy.
 
 | File | What it holds |
 | --- | --- |
-| `src/content/site.ts` | Name, links and the homepage copy: intro, How I got here, Now, Elsewhere, the contact line and the footer |
-| `src/content/experience.ts` | What I've worked on: one paragraph per role |
-| `src/content/built.ts` | Things I built on the side: name, one sentence, link, optional case study |
-| `src/content/freelance.ts` | Every client website. Sites not in `built.ts` are listed in one sentence under that section |
+| `src/content/site.ts` | Name, links, SEO title and description, hero, About, skill groups, the contact copy and the footer |
+| `src/content/experience.ts` | Experience: title, dates and one to three bullets per role |
+| `src/content/built.ts` | Featured projects: description, my contribution, stack, demo, source and optional case study |
+| `src/content/freelance.ts` | Every client website. Sites not featured in `built.ts` are listed in one sentence under the projects |
 | `src/content/projects.ts` | The case studies at `/work/[slug]` (problem, approach, decision, stack, result, screenshot alt text) |
 
 Search for `TODO(real data)` to find every place that still needs a real number, quote, link or your own words. Fields left `undefined` are not rendered.
@@ -29,7 +29,7 @@ Search for `TODO(real data)` to find every place that still needs a real number,
 
 ## Resume
 
-`public/Kartik-Maurya-Resume.pdf`. Replace the file to update it.
+`public/Kartik-Maurya-Resume.pdf` (the AI-focused resume, linked from the hero and contact). Replace the file to update it.
 
 ## Deployment
 
