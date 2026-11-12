@@ -15,11 +15,11 @@ export const site = {
   role: "Software Development Engineer",
   company: "In-Solutions Global",
   location: "Mumbai, India",
-  tagline: "AI Engineer · LLM products and Java backends",
+  tagline: "Learning to ship AI where it actually runs.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kartikm.in",
-  title: "Kartik Maurya · AI Engineer, LLM Products and Java Backends",
+  title: "Kartik Maurya · AI and Java Backend Engineer in Mumbai",
   description:
-    "Kartik Maurya is an AI Engineer in Mumbai building LLM-powered products on a Java and Spring Boot backend foundation.",
+    "Kartik Maurya builds Java and Spring Boot backends and LLM-powered apps in Mumbai, and is learning to take AI from a demo to a customer's production.",
 };
 
 /** Header links. Each href is a section id on the homepage. */

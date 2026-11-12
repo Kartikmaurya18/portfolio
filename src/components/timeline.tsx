@@ -10,7 +10,7 @@ function bulletText(text: string, client?: { name: string; url: string }): React
   return (
     <>
       {before}
-      <ExternalLink href={client.url} className="text-link">
+      <ExternalLink href={client.url} className="text-link" icon={false}>
         {client.name}
       </ExternalLink>
       {after.join("{client}")}

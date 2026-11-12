@@ -124,9 +124,9 @@ export default function HomePage() {
             <h2 id="contact-heading">{contact.heading}</h2>
             <CopyEmail email={links.email} />
             <div className="elsewhere-list">
-              <ExternalLink href={links.linkedin} className="elsewhere-link">LinkedIn<span className="elsewhere-arrow" aria-hidden="true">↗</span></ExternalLink>
-              <ExternalLink href={links.github} className="elsewhere-link">GitHub<span className="elsewhere-arrow" aria-hidden="true">↗</span></ExternalLink>
-              <a href={links.resume} download={resumeFileName} className="elsewhere-link">Resume<span className="elsewhere-arrow" aria-hidden="true">↓</span></a>
+              <ExternalLink href={links.linkedin} className="elsewhere-link">LinkedIn</ExternalLink>
+              <ExternalLink href={links.github} className="elsewhere-link">GitHub</ExternalLink>
+              <a href={links.resume} download={resumeFileName} className="elsewhere-link">Resume<span className="ext-icon" aria-hidden="true">↓</span></a>
             </div>
           </section>
         </div>

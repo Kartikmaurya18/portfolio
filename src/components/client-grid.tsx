@@ -35,7 +35,7 @@ export function ClientGrid({ sites }: { sites: FreelanceSite[] }) {
               {description && <p>{description}</p>}
               <div className="client-links">
                 <ExternalLink href={site.url} className="project-link">
-                  {displayUrl(site.url)} <span aria-hidden="true">↗</span>
+                  {displayUrl(site.url)}
                 </ExternalLink>
                 {site.caseStudy && (
                   <Link href={`/work/${site.caseStudy}`} className="project-link">

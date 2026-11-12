@@ -31,6 +31,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={sans.variable}>
       <body className="min-h-dvh">
+        <a className="skip-link" href="#main">Skip to content</a>
+        <p id="new-tab-note" hidden>Opens in a new tab</p>
         <main id="main" className="site-main">
           {children}
         </main>

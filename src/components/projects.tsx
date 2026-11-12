@@ -10,11 +10,11 @@ function Links({ project }: { project: FeaturedProject }) {
   return (
     <div className="project-links">
       {project.demo && (
-        <ExternalLink href={project.demo} className="project-link">Live Demo <span aria-hidden="true">↗</span></ExternalLink>
+        <ExternalLink href={project.demo} className="project-link">Live Demo</ExternalLink>
       )}
       {project.code && (
         <ExternalLink href={project.code} className="project-link">
-          Source Code <span className="repo-name">· {repoName(project.code)}</span> <span aria-hidden="true">↗</span>
+          Source Code <span className="repo-name">· {repoName(project.code)}</span>
         </ExternalLink>
       )}
       {project.caseStudy && (

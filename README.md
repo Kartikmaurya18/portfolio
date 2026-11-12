@@ -22,6 +22,8 @@ Content lives in typed data files. Components never hold copy.
 | `src/content/freelance.ts` | Every client website. Sites not featured in `built.ts` are listed in one sentence under the projects |
 | `src/content/projects.ts` | The case studies at `/work/[slug]` (problem, approach, decision, stack, result, screenshot alt text) |
 
+Placeholders: anything still needed from you is written as a string starting with `TODO:`. Those are hidden on the live site. To preview them while editing, create `.env.local` with `NEXT_PUBLIC_SHOW_TODOS=1` and restart `npm run dev`.
+
 Search for `TODO(real data)` to find every place that still needs a real number, quote, link or your own words. Fields left `undefined` are not rendered.
 
 ## Screenshots
