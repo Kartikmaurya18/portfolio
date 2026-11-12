@@ -53,25 +53,30 @@ export const hero = {
 export const skills: SkillGroup[] = [
   {
     category: "AI and LLMs",
+    context: "Recipe generation and chat in Homecheff.",
     core: ["LLMs"],
     items: ["RAG", "LangGraph", "AI agents"],
   },
   {
     category: "Languages",
+    context: "Java at work, Python in OptionOS.",
     core: ["Python", "Java"],
     items: ["SQL", "TypeScript"],
   },
   {
     category: "Backend and APIs",
+    context: "100+ banking APIs and the Homecheff API.",
     core: ["Spring Boot", "REST APIs"],
     items: ["FastAPI", "JPA/Hibernate", "Microservices", "Spring Security", "WebSockets"],
   },
   {
     category: "Frontend",
+    context: "Angular in Stocky, React in OptionOS and Supriyapa.",
     items: ["React", "Angular"],
   },
   {
     category: "Databases and Infrastructure",
+    context: "Oracle at work, Docker on Railway and Render.",
     items: ["PostgreSQL", "Oracle SQL", "Docker", "Kafka", "AWS", "Git", "Maven", "Postman"],
   },
 ];

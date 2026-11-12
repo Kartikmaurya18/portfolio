@@ -86,6 +86,8 @@ export interface FreelanceSite {
 
 export interface SkillGroup {
   category: string;
+  /** One short line on where it was used. Only real projects and roles. */
+  context: string;
   /** Shown first and emphasised. */
   core?: string[];
   items: string[];

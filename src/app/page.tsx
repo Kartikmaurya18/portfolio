@@ -102,13 +102,11 @@ export default function HomePage() {
           </section>
 
           <section id="skills" className="content-section" aria-labelledby="skills-heading">
-            <div className="section-heading">
-              <h2 id="skills-heading">Technical skills<span className="heading-dot">.</span></h2>
-            </div>
+            <SectionHeading id="skills-heading" eyebrow="// skills" title="Skills" />
             <dl className="skills-list">
               {skills.map((group) => (
                 <div key={group.category}>
-                  <dt>{group.category}</dt>
+                  <dt>{group.category}<small>{group.context}</small></dt>
                   <dd>
                     <ul className="tag-list">
                       {group.core?.map((name) => <li key={name} className="tag-core">{name}</li>)}
