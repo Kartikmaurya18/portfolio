@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "@/components/external-link";
+import { Beliefs } from "@/components/beliefs";
 import { ClientGrid } from "@/components/client-grid";
 import { Countdown } from "@/components/countdown";
 import { LeadProject, ProjectCard } from "@/components/projects";
@@ -8,6 +9,7 @@ import { SiteHeader } from "@/components/site-header";
 import { TerminalHero } from "@/components/terminal-hero";
 import { Ticker } from "@/components/ticker";
 import { Timeline } from "@/components/timeline";
+import { beliefs } from "@/content/beliefs";
 import { featured } from "@/content/built";
 import { freelance } from "@/content/freelance";
 import { stats } from "@/content/stats";
@@ -92,6 +94,11 @@ export default function HomePage() {
               intro={`Shipped ${freelance.length} sites for restaurants and local businesses.`}
             />
             <ClientGrid sites={freelance} />
+          </section>
+
+          <section id="beliefs" className="content-section" aria-labelledby="beliefs-heading">
+            <SectionHeading id="beliefs-heading" eyebrow="// how i build" title="How I build" />
+            <Beliefs items={beliefs} />
           </section>
 
           <section id="skills" className="content-section" aria-labelledby="skills-heading">

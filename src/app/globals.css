@@ -238,6 +238,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .client-body > p { margin: 8px 0 0; color: #a5b1a8; font-size: .88rem; line-height: 1.6; }
 .client-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: auto; padding-top: 14px; }
 
+/* How I build */
+.beliefs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.belief { display: flex; flex-direction: column; padding: 22px 22px 20px; border: 1px solid var(--rule); border-radius: 14px; background: linear-gradient(145deg, rgb(255 255 255 / 3%), rgb(255 255 255 / 1%)); }
+.belief-num { margin: 0 0 14px; color: var(--accent); font-family: var(--font-mono); font-size: .76rem; letter-spacing: .04em; }
+.belief h3 { margin: 0; color: var(--fg); font-size: 1.3rem; font-weight: 560; letter-spacing: -.04em; line-height: 1.25; text-wrap: balance; }
+.belief p:not(.belief-num) { margin: 12px 0 0; color: #a5b1a8; font-size: .9rem; line-height: 1.65; }
+
 .skills-list { display: grid; margin: 0; border-top: 1px solid var(--rule); }
 .skills-list > div { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 8px 24px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--rule); }
 .skills-list dt { color: var(--fg); font-size: .92rem; font-weight: 600; }
