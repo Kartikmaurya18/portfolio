@@ -25,8 +25,6 @@ export const site = {
 /** Header links. Each href is a section id on the homepage. */
 export const nav = [
   { label: "Road", href: "#road" },
-  { label: "Projects", href: "#projects" },
-  { label: "Sites", href: "#sites" },
   { label: "How I build", href: "#beliefs" },
   { label: "Skills", href: "#skills" },
 ];

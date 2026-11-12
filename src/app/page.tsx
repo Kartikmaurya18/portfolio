@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "@/components/external-link";
 import { Beliefs } from "@/components/beliefs";
-import { ClientGrid } from "@/components/client-grid";
 import { Countdown } from "@/components/countdown";
 import { CopyEmail } from "@/components/copy-email";
-import { LeadProject, ProjectCard } from "@/components/projects";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 import { TerminalHero } from "@/components/terminal-hero";
 import { Ticker } from "@/components/ticker";
 import { Timeline } from "@/components/timeline";
 import { beliefs } from "@/content/beliefs";
-import { featured } from "@/content/built";
-import { freelance } from "@/content/freelance";
 import { stats } from "@/content/stats";
 import { timeline } from "@/content/timeline";
 import { contact, hero, links, resumeFileName, site, skills } from "@/content/site";
@@ -34,8 +30,6 @@ export default function HomePage() {
     sameAs: [links.github, links.linkedin],
     knowsAbout: ["LLM applications", "AI agents", "RAG", "Java", "Spring Boot", "REST APIs"],
   };
-  const lead = featured.find((project) => project.lead);
-  const others = featured.filter((project) => !project.lead);
 
   return (
     <>
@@ -56,7 +50,7 @@ export default function HomePage() {
                 <Countdown deadlineIso={hero.deadline.iso} /> days left on the road to {hero.deadline.label}
               </p>
               <div className="hero-actions">
-                <a className="button button-primary" href="#projects">
+                <a className="button button-primary" href="#road">
                   View My Work <span aria-hidden="true">↓</span>
                 </a>
                 <a className="button button-quiet" href="#contact">
@@ -73,28 +67,10 @@ export default function HomePage() {
             <SectionHeading
               id="road-heading"
               eyebrow="// the road"
-              title="The road, step by step"
-              intro="Client sites and Java backends first. Now I'm learning to take AI from a demo to a customer's production."
+              title="How I got here"
+              intro="Freelance first, then Spring Boot and backends, then production. Now I'm learning to take AI from a demo to a customer's production."
             />
             <Timeline steps={timeline} />
-          </section>
-
-          <section id="projects" className="content-section" aria-labelledby="projects-heading">
-            <SectionHeading id="projects-heading" eyebrow="// projects" title="Things I've built" />
-            {lead && <LeadProject project={lead} />}
-            <div className="project-grid">
-              {others.map((project) => <ProjectCard key={project.name} project={project} />)}
-            </div>
-          </section>
-
-          <section id="sites" className="content-section" aria-labelledby="sites-heading">
-            <SectionHeading
-              id="sites-heading"
-              eyebrow="// client sites"
-              title="Client websites"
-              intro={`Shipped ${freelance.length} sites for restaurants and local businesses.`}
-            />
-            <ClientGrid sites={freelance} />
           </section>
 
           <section id="beliefs" className="content-section" aria-labelledby="beliefs-heading">

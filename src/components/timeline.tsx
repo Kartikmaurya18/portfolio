@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ExternalLink } from "@/components/external-link";
 import type { TimelineStep } from "@/content/types";
-import { hidden, shown } from "@/lib/todo";
+import { hidden } from "@/lib/todo";
 
 function bulletText(text: string, client?: { name: string; url: string }): ReactNode {
   if (!client || !text.includes("{client}")) return text;
@@ -60,7 +60,7 @@ export function Timeline({ steps }: { steps: TimelineStep[] }) {
       <ol className="tl-panels">
         {visible.map((step, index) => {
           const bullets = step.bullets.filter((bullet) => !hidden(bullet));
-          const learned = shown(step.learned);
+          const learnings = (step.learnings ?? []).filter((line) => !hidden(line));
           return (
             <li key={step.id} className={`tl-panel${step.goal ? " tl-goal" : ""}`}>
               <p className="tl-label">Step {pad(index + 1)} / {pad(total)}</p>
@@ -72,8 +72,13 @@ export function Timeline({ steps }: { steps: TimelineStep[] }) {
               <ul className="tl-bullets">
                 {bullets.map((bullet) => <li key={bullet}>{bulletText(bullet, step.client)}</li>)}
               </ul>
-              {learned && (
-                <p className="tl-learned"><span>{step.goal ? "" : "What it taught me: "}</span>{learned}</p>
+              {learnings.length > 0 && (
+                <div className="tl-learned">
+                  <p className="tl-learned-h">Key learnings</p>
+                  <ul>
+                    {learnings.map((line) => <li key={line}>{line}</li>)}
+                  </ul>
+                </div>
               )}
               <div className="tl-foot">
                 {step.caseStudy && (

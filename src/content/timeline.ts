@@ -1,30 +1,40 @@
 import type { TimelineStep } from "./types";
 
 /**
- * The road, in order. Steps whose title starts with "TODO:" are hidden until
- * you fill them in. Dates are the ones you gave me: write them in full.
- * Nothing here names a job title as the goal; the last step only lists what
- * is being learned.
+ * How I got here, in order: freelance, then Spring Boot and backend work, then
+ * production, then AI. Each step carries its key learnings. The learnings are
+ * drafts written from the facts in each step: rewrite them in your own words.
+ * Anything starting with "TODO:" stays hidden until you fill it in.
  */
 export const timeline: TimelineStep[] = [
   {
-    id: "start",
-    title: "TODO: how I started",
-    kind: "TODO: e.g. first line of code, first project",
-    period: "TODO: year",
-    bullets: ["TODO: one or two honest sentences about how you started coding."],
-    caseStudy: null,
-  },
-  {
-    id: "web-maken",
-    title: "Web-Maken",
+    id: "freelance",
+    title: "Freelance at Web-Maken",
     kind: "Freelance",
     period: "Jan 2025 – Jun 2025",
     bullets: [
-      "Built REST API integrations for client projects, including a real-time restaurant ordering system.",
-      "Automated inventory sync between e-commerce platforms through REST APIs.",
+      "Built 12 websites for restaurants and local businesses in Belgium and India.",
+      "Wrote REST API integrations, including a real-time restaurant ordering system and inventory sync between e-commerce platforms.",
     ],
-    learned: "Shipping integrations for real clients.",
+    learnings: [
+      "Turning a client's request into something live, on their deadline.",
+      "The website is the easy part; ordering and inventory had to stay in sync behind it.",
+    ],
+    caseStudy: null,
+  },
+  {
+    id: "backend",
+    title: "Finding the backend",
+    kind: "Java and Spring Boot",
+    // From the dates of the Java repos on GitHub (fsdbackend, jwtsecurity, microservice).
+    period: "2025",
+    bullets: [
+      "Taught myself Java and Spring Boot by building REST backends, JWT security and small microservices.",
+    ],
+    learnings: [
+      "How APIs, data models and authentication fit together.",
+      "Splitting one app into services, and what that costs.",
+    ],
     caseStudy: null,
   },
   {
@@ -39,7 +49,10 @@ export const timeline: TimelineStep[] = [
       "Shipped 100+ REST APIs in Java, Spring Boot and Oracle SQL for core banking workflows.",
       "Building a Bharat Connect (BBPS) Customer Operating Unit for the {client} app.",
     ],
-    learned: "Production systems: SIT and UAT cycles, releases and defects.",
+    learnings: [
+      "Production is different: SIT and UAT cycles, releases and fixing defects.",
+      "Moving a legacy system to services one piece at a time.",
+    ],
     caseStudy: null,
   },
   {
@@ -53,7 +66,10 @@ export const timeline: TimelineStep[] = [
       "Added role-based access control and real-time activity tracking.",
       "TODO: what triggered the move into AI (one sentence, your words).",
     ],
-    learned: "Turning a customer's manual process into automation.",
+    learnings: [
+      "Sitting with a customer's team and automating the process they actually run.",
+      "Working straight with founders, from their problem to a tool in daily use.",
+    ],
     caseStudy: "yumedics-dashboard",
   },
   {

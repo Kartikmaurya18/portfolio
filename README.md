@@ -16,10 +16,9 @@ Content lives in typed data files. Components never hold copy.
 | File | What it holds |
 | --- | --- |
 | `src/content/site.ts` | Name, links, SEO title and description, hero, About, skill groups, the contact copy and the footer |
-| `src/content/timeline.ts` | The road: one entry per step (dates, bullets, what it taught, case study). Entries starting with `TODO:` stay hidden until filled |
+| `src/content/timeline.ts` | How I got here: one entry per step (dates, bullets, key learnings, case study). Entries starting with `TODO:` stay hidden until filled |
 | `src/content/stats.ts` | The numbers in the scrolling strip |
-| `src/content/built.ts` | Featured projects: description, my contribution, stack, demo, source and optional case study |
-| `src/content/freelance.ts` | Every client website. Sites not featured in `built.ts` are listed in one sentence under the projects |
+| `src/content/freelance.ts` | The client websites. Not listed on the page any more; their count feeds the stats strip |
 | `src/content/projects.ts` | The case studies at `/work/[slug]` (problem, approach, decision, stack, result, screenshot alt text) |
 
 Placeholders: anything still needed from you is written as a string starting with `TODO:`. Those are hidden on the live site. To preview them while editing, create `.env.local` with `NEXT_PUBLIC_SHOW_TODOS=1` and restart `npm run dev`.
