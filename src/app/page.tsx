@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "@/components/external-link";
+import { ClientGrid } from "@/components/client-grid";
 import { Countdown } from "@/components/countdown";
 import { LeadProject, ProjectCard } from "@/components/projects";
 import { SectionHeading } from "@/components/section-heading";
@@ -8,6 +9,7 @@ import { TerminalHero } from "@/components/terminal-hero";
 import { Ticker } from "@/components/ticker";
 import { Timeline } from "@/components/timeline";
 import { featured } from "@/content/built";
+import { freelance } from "@/content/freelance";
 import { stats } from "@/content/stats";
 import { timeline } from "@/content/timeline";
 import { contact, hero, links, resumeFileName, site, skills } from "@/content/site";
@@ -80,6 +82,16 @@ export default function HomePage() {
             <div className="project-grid">
               {others.map((project) => <ProjectCard key={project.name} project={project} />)}
             </div>
+          </section>
+
+          <section id="sites" className="content-section" aria-labelledby="sites-heading">
+            <SectionHeading
+              id="sites-heading"
+              eyebrow="// client sites"
+              title="Client websites"
+              intro={`Shipped ${freelance.length} sites for restaurants and local businesses.`}
+            />
+            <ClientGrid sites={freelance} />
           </section>
 
           <section id="skills" className="content-section" aria-labelledby="skills-heading">

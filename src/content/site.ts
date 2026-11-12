@@ -26,6 +26,7 @@ export const site = {
 export const nav = [
   { label: "Road", href: "#road" },
   { label: "Projects", href: "#projects" },
+  { label: "Sites", href: "#sites" },
   { label: "Skills", href: "#skills" },
 ];
 
@@ -46,11 +47,6 @@ export const hero = {
       ["location", "Mumbai, IN"],
     ] as [string, string][],
   },
-};
-
-export const clientSites = {
-  before: "Client websites:",
-  after: ".",
 };
 
 export const skills: SkillGroup[] = [

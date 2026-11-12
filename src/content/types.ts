@@ -74,6 +74,14 @@ export interface FeaturedProject {
 export interface FreelanceSite {
   name: string;
   url: string;
+  /** Short tag, e.g. "Restaurant", "Online store", "Laboratory". */
+  type: string;
+  /** One line. Start with "TODO:" to hide it until it is written. */
+  description?: string;
+  /** A screenshot already in public/. Sites without one get a neutral tile. */
+  image?: { src: string; alt: string };
+  /** Slug of a case study in projects.ts, if there is one. */
+  caseStudy?: string;
 }
 
 export interface SkillGroup {
