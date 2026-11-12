@@ -82,8 +82,7 @@ export const skills: SkillGroup[] = [
 ];
 
 export const contact = {
-  heading: "Have a project or engineering opportunity?",
-  line: "Let's connect.",
+  heading: "Building something with AI? Let's talk.",
 };
 
-export const footer = { note: "Built in Mumbai" };
+export const footer = { note: "Built in Mumbai", signOff: "Built by hand." };

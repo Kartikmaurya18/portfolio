@@ -3,6 +3,7 @@ import { ExternalLink } from "@/components/external-link";
 import { Beliefs } from "@/components/beliefs";
 import { ClientGrid } from "@/components/client-grid";
 import { Countdown } from "@/components/countdown";
+import { CopyEmail } from "@/components/copy-email";
 import { LeadProject, ProjectCard } from "@/components/projects";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
@@ -119,9 +120,9 @@ export default function HomePage() {
           </section>
 
           <section id="contact" className="content-section contact-card" aria-labelledby="contact-heading">
+            <p className="section-eyebrow">{"// contact"}</p>
             <h2 id="contact-heading">{contact.heading}</h2>
-            <p className="contact-prompt">{contact.line}</p>
-            <a className="email-link" href={`mailto:${links.email}`}>{links.email}<span aria-hidden="true">↗</span></a>
+            <CopyEmail email={links.email} />
             <div className="elsewhere-list">
               <ExternalLink href={links.linkedin} className="elsewhere-link">LinkedIn<span className="elsewhere-arrow" aria-hidden="true">↗</span></ExternalLink>
               <ExternalLink href={links.github} className="elsewhere-link">GitHub<span className="elsewhere-arrow" aria-hidden="true">↗</span></ExternalLink>
