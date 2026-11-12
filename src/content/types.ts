@@ -45,14 +45,27 @@ export interface CaseStudy {
 
 export interface FeaturedProject {
   name: string;
-  /** What the application does, in 25–45 words. */
+  /** The one shown as the large card. Only one project should set it. */
+  lead?: boolean;
+  /** What the application does. */
   description: string;
+  /** Lead card only: the problem, in Kartik's words. */
+  problem?: string;
+  /** Lead card only: what was built, one line each. */
+  built?: string[];
+  /** Lead card only: the parts the request passes through, left to right. */
+  flow?: string[];
+  flowNote?: string;
+  /** Lead card only: where the demo and the backend run. */
+  deployment?: string;
+  /** Lead card only: two to four real numbers. */
+  metrics?: { value: string; label: string }[];
   /** One short sentence on what Kartik implemented. */
   contribution: string;
   stack: string[];
   /** Live site or demo. Leave out when there is none. */
   demo?: string;
-  /** Source code. */
+  /** Source code. The repo name is shown next to the link. */
   code?: string;
   /** Slug of a case study in projects.ts, if there is one. */
   caseStudy?: string;

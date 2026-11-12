@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Fragment } from "react";
 import { ExternalLink } from "@/components/external-link";
 import { Countdown } from "@/components/countdown";
+import { LeadProject, ProjectCard } from "@/components/projects";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 import { TerminalHero } from "@/components/terminal-hero";
 import { Ticker } from "@/components/ticker";
 import { Timeline } from "@/components/timeline";
 import { featured } from "@/content/built";
-import { freelance } from "@/content/freelance";
 import { stats } from "@/content/stats";
 import { timeline } from "@/content/timeline";
-import { clientSites, contact, hero, links, resumeFileName, site, skills } from "@/content/site";
+import { contact, hero, links, resumeFileName, site, skills } from "@/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -31,8 +29,8 @@ export default function HomePage() {
     sameAs: [links.github, links.linkedin],
     knowsAbout: ["LLM applications", "AI agents", "RAG", "Java", "Spring Boot", "REST APIs"],
   };
-  const featuredUrls = new Set(featured.flatMap((item) => (item.demo ? [item.demo] : [])));
-  const otherSites = freelance.filter((client) => !featuredUrls.has(client.url));
+  const lead = featured.find((project) => project.lead);
+  const others = featured.filter((project) => !project.lead);
 
   return (
     <>
@@ -77,35 +75,11 @@ export default function HomePage() {
           </section>
 
           <section id="projects" className="content-section" aria-labelledby="projects-heading">
-            <div className="section-heading">
-              <h2 id="projects-heading">Featured projects<span className="heading-dot">.</span></h2>
-            </div>
+            <SectionHeading id="projects-heading" eyebrow="// projects" title="Things I've built" />
+            {lead && <LeadProject project={lead} />}
             <div className="project-grid">
-              {featured.map((item) => (
-                <article className="project-card" key={item.name}>
-                  <h3>{item.name}</h3>
-                  <p>{item.description}</p>
-                  <p className="project-contribution"><strong>My contribution:</strong> {item.contribution}</p>
-                  <ul className="tag-list" aria-label={`${item.name} tech stack`}>
-                    {item.stack.map((tech) => <li key={tech}>{tech}</li>)}
-                  </ul>
-                  <div className="project-links">
-                    {item.demo && <ExternalLink href={item.demo} className="project-link">Live Demo <span aria-hidden="true">↗</span></ExternalLink>}
-                    {item.code && <ExternalLink href={item.code} className="project-link">Source Code <span aria-hidden="true">↗</span></ExternalLink>}
-                    {item.caseStudy && <Link href={`/work/${item.caseStudy}`} className="project-link">Case study <span aria-hidden="true">↗</span></Link>}
-                  </div>
-                </article>
-              ))}
+              {others.map((project) => <ProjectCard key={project.name} project={project} />)}
             </div>
-            <p className="client-list">
-              {clientSites.before}{" "}
-              {otherSites.map((client, index) => (
-                <Fragment key={client.url}>
-                  {index > 0 && ", "}
-                  <ExternalLink href={client.url} className="text-link">{client.name}</ExternalLink>
-                </Fragment>
-              ))}{clientSites.after}
-            </p>
           </section>
 
           <section id="skills" className="content-section" aria-labelledby="skills-heading">
