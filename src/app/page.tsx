@@ -5,9 +5,11 @@ import { ExternalLink } from "@/components/external-link";
 import { Countdown } from "@/components/countdown";
 import { SiteHeader } from "@/components/site-header";
 import { TerminalHero } from "@/components/terminal-hero";
+import { Ticker } from "@/components/ticker";
 import { featured } from "@/content/built";
 import { roles } from "@/content/experience";
 import { freelance } from "@/content/freelance";
+import { stats } from "@/content/stats";
 import { about, clientSites, contact, hero, links, resumeFileName, site, skills } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -73,6 +75,8 @@ export default function HomePage() {
             </div>
             <TerminalHero terminal={hero.terminal} />
           </section>
+
+          <Ticker items={stats} />
 
           <section id="about" className="content-section" aria-labelledby="about-heading">
             <div className="section-heading">
