@@ -1,14 +1,22 @@
-export interface Role {
-  company: string;
+export interface TimelineStep {
+  /** Used for ids and keys. */
+  id: string;
   title: string;
-  /** e.g. "Nov 2025 – now". */
+  /** Job title or kind of work, e.g. "Freelance". */
+  kind: string;
+  /** Written in full: "Jan 2025 – Jun 2025", "Nov 2025 – Present". */
   period: string;
-  /** One to three short bullets. Use {client} to link the optional client below. */
+  /** One to a few short bullets. Use {client} to link `client` inside a bullet. */
   bullets: string[];
-  /** Optional external client linked wherever a bullet contains its name. */
   client?: { name: string; url: string };
-  /** Slug of a case study in projects.ts, if there is one. */
-  caseStudy?: string;
+  /** One line on what the step taught. Shown as "What it taught me". */
+  learned?: string;
+  /** Slug of a case study in projects.ts, or null. Every step has the field so the layout is the same. */
+  caseStudy: string | null;
+  /** The step opened first. */
+  current?: boolean;
+  /** The last step: where the road is heading. */
+  goal?: boolean;
 }
 
 export interface CaseStudy {

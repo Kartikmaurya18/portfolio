@@ -24,7 +24,7 @@ export const site = {
 
 /** Header links. Each href is a section id on the homepage. */
 export const nav = [
-  { label: "Experience", href: "#experience" },
+  { label: "Road", href: "#road" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
 ];
@@ -47,9 +47,6 @@ export const hero = {
     ] as [string, string][],
   },
 };
-
-export const about =
-  "I'm an AI engineer with a backend foundation. At In-Solutions Global I build Java and Spring Boot banking services; on my own I build LLM-powered products and am learning RAG and agents.";
 
 export const clientSites = {
   before: "Client websites:",

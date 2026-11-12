@@ -16,7 +16,8 @@ Content lives in typed data files. Components never hold copy.
 | File | What it holds |
 | --- | --- |
 | `src/content/site.ts` | Name, links, SEO title and description, hero, About, skill groups, the contact copy and the footer |
-| `src/content/experience.ts` | Experience: title, dates and one to three bullets per role |
+| `src/content/timeline.ts` | The road: one entry per step (dates, bullets, what it taught, case study). Entries starting with `TODO:` stay hidden until filled |
+| `src/content/stats.ts` | The numbers in the scrolling strip |
 | `src/content/built.ts` | Featured projects: description, my contribution, stack, demo, source and optional case study |
 | `src/content/freelance.ts` | Every client website. Sites not featured in `built.ts` are listed in one sentence under the projects |
 | `src/content/projects.ts` | The case studies at `/work/[slug]` (problem, approach, decision, stack, result, screenshot alt text) |

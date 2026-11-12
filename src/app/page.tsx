@@ -3,32 +3,20 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { ExternalLink } from "@/components/external-link";
 import { Countdown } from "@/components/countdown";
+import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 import { TerminalHero } from "@/components/terminal-hero";
 import { Ticker } from "@/components/ticker";
+import { Timeline } from "@/components/timeline";
 import { featured } from "@/content/built";
-import { roles } from "@/content/experience";
 import { freelance } from "@/content/freelance";
 import { stats } from "@/content/stats";
-import { about, clientSites, contact, hero, links, resumeFileName, site, skills } from "@/content/site";
+import { timeline } from "@/content/timeline";
+import { clientSites, contact, hero, links, resumeFileName, site, skills } from "@/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
-
-function bulletText(text: string, client?: { name: string; url: string }) {
-  if (!client || !text.includes("{client}")) return text;
-  const [before, ...after] = text.split("{client}");
-  return (
-    <>
-      {before}
-      <ExternalLink href={client.url} className="text-link">
-        {client.name}
-      </ExternalLink>
-      {after.join("{client}")}
-    </>
-  );
-}
 
 export default function HomePage() {
   const jsonLd = {
@@ -78,36 +66,14 @@ export default function HomePage() {
 
           <Ticker items={stats} />
 
-          <section id="about" className="content-section" aria-labelledby="about-heading">
-            <div className="section-heading">
-              <h2 id="about-heading">About<span className="heading-dot">.</span></h2>
-            </div>
-            <p className="about-text">{about}</p>
-          </section>
-
-          <section id="experience" className="content-section" aria-labelledby="experience-heading">
-            <div className="section-heading">
-              <h2 id="experience-heading">Experience<span className="heading-dot">.</span></h2>
-            </div>
-            <div className="experience-list">
-              {roles.map((role) => (
-                <article className="experience-card" key={role.company}>
-                  <div className="experience-title-row">
-                    <h3>{role.company}</h3>
-                    <span className="date-chip">{role.period}</span>
-                  </div>
-                  <p className="experience-role">{role.title}</p>
-                  <ul>
-                    {role.bullets.map((bullet) => <li key={bullet}>{bulletText(bullet, role.client)}</li>)}
-                  </ul>
-                  {role.caseStudy && (
-                    <Link href={`/work/${role.caseStudy}`} className="inline-action">
-                      Read the case study <span aria-hidden="true">↗</span>
-                    </Link>
-                  )}
-                </article>
-              ))}
-            </div>
+          <section id="road" className="content-section" aria-labelledby="road-heading">
+            <SectionHeading
+              id="road-heading"
+              eyebrow="// the road"
+              title="The road, step by step"
+              intro="Client sites and Java backends first. Now I'm learning to take AI from a demo to a customer's production."
+            />
+            <Timeline steps={timeline} />
           </section>
 
           <section id="projects" className="content-section" aria-labelledby="projects-heading">

@@ -15,7 +15,7 @@ export const projects: CaseStudy[] = [
     title: "Yumedics Command Center",
     client: "Yumedics and Yuderma",
     kind: "Operations dashboard",
-    year: "2025",
+    year: "2026",
     role: "AI Engineer Intern, Yumedics Labs",
     url: "https://yumedics-dashboard.vercel.app",
     summary:
