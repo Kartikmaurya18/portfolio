@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { ExternalLink } from "@/components/external-link";
 import { Countdown } from "@/components/countdown";
+import { SiteHeader } from "@/components/site-header";
 import { TerminalHero } from "@/components/terminal-hero";
 import { featured } from "@/content/built";
 import { roles } from "@/content/experience";
@@ -51,18 +52,7 @@ export default function HomePage() {
       />
 
       <div className="portfolio-shell" id="top">
-        <header className="site-header">
-          <a className="brand" href="#top" aria-label="Kartik Maurya, home">
-            <span className="brand-mark">KM</span>
-            <span className="brand-name">Kartik Maurya<span>AI engineer</span></span>
-          </a>
-          <nav className="main-nav" aria-label="Main navigation">
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact <span aria-hidden="true">↗</span></a>
-          </nav>
-        </header>
+        <SiteHeader />
 
         <div>
           <section className="hero" aria-labelledby="intro-heading">

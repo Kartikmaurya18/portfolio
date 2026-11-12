@@ -22,6 +22,13 @@ export const site = {
     "Kartik Maurya is an AI Engineer in Mumbai building LLM-powered products on a Java and Spring Boot backend foundation.",
 };
 
+/** Header links. Each href is a section id on the homepage. */
+export const nav = [
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+];
+
 export const hero = {
   eyebrow: "// Mumbai, India",
   headline: ["Learning to ship AI", "where it actually runs."],
