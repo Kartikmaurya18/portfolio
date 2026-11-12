@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Fragment } from "react";
 import { ExternalLink } from "@/components/external-link";
-import { Download, GitHub, LinkedIn } from "@/components/icons";
+import { Countdown } from "@/components/countdown";
+import { TerminalHero } from "@/components/terminal-hero";
 import { featured } from "@/content/built";
 import { roles } from "@/content/experience";
 import { freelance } from "@/content/freelance";
@@ -11,11 +12,6 @@ import { about, clientSites, contact, hero, links, resumeFileName, site, skills 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
-
-const profiles = [
-  { label: "LinkedIn", href: links.linkedin, Icon: LinkedIn },
-  { label: "GitHub", href: links.github, Icon: GitHub },
-];
 
 function bulletText(text: string, client?: { name: string; url: string }) {
   if (!client || !text.includes("{client}")) return text;
@@ -70,24 +66,22 @@ export default function HomePage() {
 
         <div>
           <section className="hero" aria-labelledby="intro-heading">
-            <p className="eyebrow"><span className="status-dot" /> {hero.eyebrow}</p>
-            <h1 id="intro-heading">{hero.headline[0]} <span>{hero.headline[1]}</span></h1>
-            <p className="hero-description">{hero.body}</p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#projects">
-                View My Work <span aria-hidden="true">↓</span>
-              </a>
-              <ExternalLink className="button button-quiet" href={links.resume}>
-                <Download aria-hidden="true" /> View Resume
-              </ExternalLink>
+            <div className="hero-copy">
+              <p className="eyebrow"><span className="status-dot" aria-hidden="true" /> {hero.eyebrow}</p>
+              <h1 id="intro-heading">{hero.headline[0]} <span>{hero.headline[1]}</span></h1>
+              <p className="countdown">
+                <Countdown deadlineIso={hero.deadline.iso} /> days left on the road to {hero.deadline.label}
+              </p>
+              <div className="hero-actions">
+                <a className="button button-primary" href="#projects">
+                  View My Work <span aria-hidden="true">↓</span>
+                </a>
+                <a className="button button-quiet" href="#contact">
+                  Let&apos;s talk <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
-            <div className="social-links" aria-label="Social links">
-              {profiles.map(({ label, href, Icon }) => (
-                <ExternalLink key={label} href={href} className="social-link">
-                  <Icon /> {label} <span aria-hidden="true">↗</span>
-                </ExternalLink>
-              ))}
-            </div>
+            <TerminalHero terminal={hero.terminal} />
           </section>
 
           <section id="about" className="content-section" aria-labelledby="about-heading">

@@ -23,10 +23,22 @@ export const site = {
 };
 
 export const hero = {
-  eyebrow: "AI Engineer · Mumbai, India",
-  /** Plain text, then the part set in the accent colour. */
-  headline: ["I build AI products that", "solve real problems."],
-  body: "LLM-powered apps on a solid Java and Spring Boot backend foundation.",
+  eyebrow: "// Mumbai, India",
+  headline: ["Learning to ship AI", "where it actually runs."],
+  /** The goal date. The page counts down to it; it never names a job title. */
+  deadline: { iso: "2027-12-31T23:59:59+05:30", label: "31.12.2027" },
+  /** Typed out on load. Every value is real text in the HTML. */
+  terminal: {
+    command: "kartik --status",
+    lines: [
+      ["role", "Software Development Engineer"],
+      ["company", "In-Solutions Global"],
+      ["learning", "AI, from demo to production"],
+      ["apis_built", "100+"],
+      ["deadline", "31.12.2027"],
+      ["location", "Mumbai, IN"],
+    ] as [string, string][],
+  },
 };
 
 export const about =
