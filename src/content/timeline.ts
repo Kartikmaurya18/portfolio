@@ -2,8 +2,8 @@ import type { TimelineStep } from "./types";
 
 /**
  * How I got here, in order: freelance, then Spring Boot and backend work, then
- * production, then AI. Each step carries its key learnings. The learnings are
- * drafts written from the facts in each step: rewrite them in your own words.
+ * production, then AI. Keep each step to one short point and one short key
+ * learning. The learnings are drafts: rewrite them in your own words.
  * Anything starting with "TODO:" stays hidden until you fill it in.
  */
 export const timeline: TimelineStep[] = [
@@ -13,12 +13,10 @@ export const timeline: TimelineStep[] = [
     kind: "Freelance",
     period: "Jan 2025 – Jun 2025",
     bullets: [
-      "Built 12 websites for restaurants and local businesses in Belgium and India.",
-      "Wrote REST API integrations, including a real-time restaurant ordering system and inventory sync between e-commerce platforms.",
+      "Built 12 websites and API integrations for restaurants and local businesses.",
     ],
     learnings: [
-      "Turning a client's request into something live, on their deadline.",
-      "The website is the easy part; ordering and inventory had to stay in sync behind it.",
+      "Shipping for real clients, on their deadline.",
     ],
     caseStudy: null,
   },
@@ -29,11 +27,10 @@ export const timeline: TimelineStep[] = [
     // From the dates of the Java repos on GitHub (fsdbackend, jwtsecurity, microservice).
     period: "2025",
     bullets: [
-      "Taught myself Java and Spring Boot by building REST backends, JWT security and small microservices.",
+      "Taught myself Java and Spring Boot by building REST backends.",
     ],
     learnings: [
-      "How APIs, data models and authentication fit together.",
-      "Splitting one app into services, and what that costs.",
+      "How APIs, data and auth fit together.",
     ],
     caseStudy: null,
   },
@@ -47,8 +44,7 @@ export const timeline: TimelineStep[] = [
       "Managing and handling the complete PNB Genie application.",
     ],
     learnings: [
-      "Production is different: SIT and UAT cycles, releases and fixing defects.",
-      "Moving a legacy system to services one piece at a time.",
+      "Production is different from projects.",
     ],
     caseStudy: null,
   },
@@ -59,13 +55,10 @@ export const timeline: TimelineStep[] = [
     // Dates as given by Kartik on 2026-11-13. The resume PDF still says Jun – Oct 2025.
     period: "Apr 2026 – May 2026",
     bullets: [
-      "Built an operations dashboard that automates invoice intake from Gmail and WhatsApp for a 15-person field team.",
-      "Added role-based access control and real-time activity tracking.",
-      "TODO: what triggered the move into AI (one sentence, your words).",
+      "Built a dashboard that automates invoice intake for a 15-person team.",
     ],
     learnings: [
-      "Sitting with a customer's team and automating the process they actually run.",
-      "Working straight with founders, from their problem to a tool in daily use.",
+      "Build around the process the team actually runs.",
     ],
     caseStudy: "yumedics-dashboard",
   },
@@ -84,11 +77,7 @@ export const timeline: TimelineStep[] = [
     period: "By 31 Oct 2027",
     goal: true,
     bullets: [
-      "Scoping a problem with a customer, not just building the solution.",
-      "Connecting LLM apps to messy real systems: APIs, SQL databases and authentication.",
-      "Evaluating LLM apps before they ship.",
-      "Deploying, monitoring and supporting them in production.",
-      "Writing up the results with real numbers.",
+      "Taking AI from a demo to a customer's production.",
     ],
     caseStudy: null,
   },
