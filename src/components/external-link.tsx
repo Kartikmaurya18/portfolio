@@ -1,11 +1,16 @@
 import type { ComponentProps } from "react";
 
-/** Opens in a new tab and tells screen reader users so. */
-export function ExternalLink({ children, ...props }: ComponentProps<"a">) {
+/**
+ * Opens in a new tab. A small arrow marks it for sighted visitors; screen
+ * readers get one shared "Opens in a new tab" note (see the root layout)
+ * through aria-describedby, so the words are not repeated in every link.
+ * Pass icon={false} for a link that sits inside a sentence.
+ */
+export function ExternalLink({ children, icon = true, ...props }: ComponentProps<"a"> & { icon?: boolean }) {
   return (
-    <a target="_blank" rel="noopener noreferrer" {...props}>
+    <a target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note" {...props}>
       {children}
-      <span className="sr-only"> (opens in a new tab)</span>
+      {icon && <span className="ext-icon" aria-hidden="true">↗</span>}
     </a>
   );
 }

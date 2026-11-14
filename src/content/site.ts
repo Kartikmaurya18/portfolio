@@ -1,5 +1,3 @@
-import type { SkillGroup } from "./types";
-
 export const links = {
   email: "kartikmaurya18@gmail.com",
   github: "https://github.com/Kartikmaurya18",
@@ -15,57 +13,48 @@ export const site = {
   role: "Software Development Engineer",
   company: "In-Solutions Global",
   location: "Mumbai, India",
-  tagline: "AI Engineer · LLM products and Java backends",
+  tagline: "Road to 31.10.2027. Learning to ship AI where it actually runs.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kartikm.in",
-  title: "Kartik Maurya · AI Engineer, LLM Products and Java Backends",
+  title: "Kartik Maurya · AI and Java Backend Engineer in Mumbai",
   description:
-    "Kartik Maurya is an AI Engineer in Mumbai building LLM-powered products on a Java and Spring Boot backend foundation.",
+    "Kartik Maurya builds Java and Spring Boot backends and LLM-powered apps in Mumbai, and is learning to take AI from a demo to a customer's production.",
+};
+
+/** Header links. Each href is a section id on the homepage. */
+export const nav = [
+  { label: "The run", href: "#run" },
+  { label: "Road", href: "#road" },
+  { label: "How I build", href: "#beliefs" },
+];
+
+/**
+ * The road the countdown measures. The start is the first freelance month
+ * (exact day unknown, so the 1st); the deadline is the goal date.
+ */
+export const road = {
+  start: { iso: "2025-01-01T00:00:00+05:30", label: "Jan 2025", note: "started freelancing" },
+  deadline: { iso: "2027-10-31T23:59:59+05:30", label: "31.10.2027", note: "deadline" },
 };
 
 export const hero = {
-  eyebrow: "AI Engineer · Mumbai, India",
-  /** Plain text, then the part set in the accent colour. */
-  headline: ["I build AI products that", "solve real problems."],
-  body: "LLM-powered apps on a solid Java and Spring Boot backend foundation.",
+  eyebrow: "// Mumbai, India · road to 31.10.2027",
+  /** Typed out on load. Every value is real text in the HTML. */
+  terminal: {
+    command: "kartik --status",
+    lines: [
+      ["role", "Software Development Engineer"],
+      ["company", "In-Solutions Global"],
+      ["learning", "AI, from demo to production"],
+      ["apis_built", "100+"],
+      ["deadline", "31.10.2027"],
+      ["location", "Mumbai, IN"],
+    ] as [string, string][],
+  },
 };
 
-export const about =
-  "I'm an AI engineer with a backend foundation. At In-Solutions Global I build Java and Spring Boot banking services; on my own I build LLM-powered products and am learning RAG and agents.";
-
-export const clientSites = {
-  before: "Client websites:",
-  after: ".",
-};
-
-export const skills: SkillGroup[] = [
-  {
-    category: "AI and LLMs",
-    core: ["LLMs"],
-    items: ["RAG", "LangGraph", "AI agents"],
-  },
-  {
-    category: "Languages",
-    core: ["Python", "Java"],
-    items: ["SQL", "TypeScript"],
-  },
-  {
-    category: "Backend and APIs",
-    core: ["Spring Boot", "REST APIs"],
-    items: ["FastAPI", "JPA/Hibernate", "Microservices", "Spring Security", "WebSockets"],
-  },
-  {
-    category: "Frontend",
-    items: ["React", "Angular"],
-  },
-  {
-    category: "Databases and Infrastructure",
-    items: ["PostgreSQL", "Oracle SQL", "Docker", "Kafka", "AWS", "Git", "Maven", "Postman"],
-  },
-];
 
 export const contact = {
-  heading: "Have a project or engineering opportunity?",
-  line: "Let's connect.",
+  heading: "Building something with AI? Let's talk.",
 };
 
-export const footer = { note: "Built in Mumbai" };
+export const footer = { note: "Built in Mumbai", signOff: "Built by hand" };
