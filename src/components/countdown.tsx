@@ -16,29 +16,23 @@ export function DaysLeft({ className }: { className?: string }) {
   return <span className={className}>{now === 0 ? "—" : fmt(progress(now * 1000).daysLeft)}</span>;
 }
 
-/** Three small tiles: exact days left, weeks left, day N of M. Ticks every second, barely at all with reduced motion. */
+/** "350.73421 days exactly · 50 weeks · Day 684 of 1,034". Ticks every second, or barely at all with reduced motion. */
 export function CountdownDetail() {
   const now = useNowSeconds(1000);
-  let items: [string, string][];
   if (now === 0) {
-    items = [["—", "exact days"], ["—", "weeks left"], ["Day —", `of ${fmt(totalDays)}`]];
-  } else {
-    const p = progress(now * 1000);
-    const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    items = [
-      [p.exact.toFixed(calm ? 2 : 5), "exact days"],
-      [fmt(p.weeksLeft), "weeks left"],
-      [`Day ${fmt(p.dayNumber)}`, `of ${fmt(totalDays)}`],
-    ];
+    return (
+      <p className="countdown-detail">
+        <span>— days exactly</span> <span>· — weeks</span> <span>· Day — of {fmt(totalDays)}</span>
+      </p>
+    );
   }
+  const p = progress(now * 1000);
+  const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   return (
-    <ul className="countdown-detail">
-      {items.map(([value, label]) => (
-        <li key={label}>
-          <strong>{value}</strong> <span>{label}</span>
-        </li>
-      ))}
-    </ul>
+    <p className="countdown-detail">
+      <span>{p.exact.toFixed(calm ? 2 : 5)} days exactly</span> <span>· {fmt(p.weeksLeft)} weeks</span>{" "}
+      <span>· Day {fmt(p.dayNumber)} of {fmt(totalDays)}</span>
+    </p>
   );
 }
 

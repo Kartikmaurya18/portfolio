@@ -89,10 +89,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .status-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px rgb(215 245 138 / 80%); }
 .status-dot::after { position: absolute; inset: -4px; border: 1px solid rgb(215 245 138 / 40%); border-radius: 50%; content: ""; animation: pulse 2s infinite; }
 .big-days { margin: 10px 0 0; color: var(--accent); font-family: var(--font-mono); font-size: clamp(6.5rem, 34vw, 9.5rem); font-weight: 700; letter-spacing: -.06em; line-height: .95; font-variant-numeric: tabular-nums; text-shadow: 0 0 60px rgb(215 245 138 / 22%); }
-.countdown-detail { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; max-width: 470px; margin: 18px 0 0; padding: 0; list-style: none; font-family: var(--font-mono); }
-.countdown-detail li { min-width: 0; padding: 9px 10px; border: 1px solid var(--rule); border-radius: 10px; background: rgb(255 255 255 / 2%); }
-.countdown-detail strong { display: block; overflow: hidden; color: var(--fg); font-size: clamp(.82rem, 3.6vw, 1rem); font-variant-numeric: tabular-nums; text-overflow: ellipsis; white-space: nowrap; }
-.countdown-detail span { color: #93a197; font-size: .7rem; }
+.countdown-detail { display: flex; flex-wrap: wrap; gap: 2px 8px; margin: 14px 0 0; color: #b4c0b6; font-family: var(--font-mono); font-size: .86rem; font-variant-numeric: tabular-nums; }
+.countdown-detail span { white-space: nowrap; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .button { display: inline-flex; min-height: 47px; align-items: center; justify-content: center; gap: 10px; padding: 0 20px; border: 1px solid transparent; border-radius: 999px; font-size: .84rem; font-weight: 650; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
 .button:hover { transform: translateY(-2px); }
