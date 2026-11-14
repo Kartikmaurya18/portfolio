@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer-inner">
         <p>
-          {footer.note} <span aria-hidden="true">·</span> {footer.signOff} <span aria-hidden="true">·</span>{" "}
+          {footer.note} <span aria-hidden="true">·</span>{" "}
           <span className="footer-left"><DaysLeft /> days left</span>
         </p>
         <p>© <CurrentYear buildYear={new Date().getFullYear()} /> {site.name}</p>

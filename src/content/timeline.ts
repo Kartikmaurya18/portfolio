@@ -16,7 +16,7 @@ export const timeline: TimelineStep[] = [
       "Built 12 websites and API integrations for restaurants and local businesses.",
     ],
     learnings: [
-      "Shipping for real clients, on their deadline.",
+      "A client doesn't care how it's built. They care that orders and stock stay correct.",
     ],
     caseStudy: null,
   },
@@ -30,7 +30,7 @@ export const timeline: TimelineStep[] = [
       "Taught myself Java and Spring Boot by building REST backends.",
     ],
     learnings: [
-      "How APIs, data and auth fit together.",
+      "A backend is mostly data and security. The endpoints are the easy part.",
     ],
     caseStudy: null,
   },
@@ -44,7 +44,7 @@ export const timeline: TimelineStep[] = [
       "Managing and handling the complete PNB Genie application.",
     ],
     learnings: [
-      "Production is different from projects.",
+      "In a bank, 'it works on my machine' means nothing. It has to pass SIT and UAT.",
     ],
     caseStudy: null,
   },
@@ -58,7 +58,7 @@ export const timeline: TimelineStep[] = [
       "Built a dashboard that automates invoice intake for a 15-person team.",
     ],
     learnings: [
-      "Build around the process the team actually runs.",
+      "Automate the process a team really follows, not the one they describe.",
     ],
     caseStudy: "yumedics-dashboard",
   },
@@ -78,6 +78,7 @@ export const timeline: TimelineStep[] = [
     goal: true,
     bullets: [
       "Taking AI from a demo to a customer's production.",
+      "Scaling applications: system design, load and reliability.",
     ],
     caseStudy: null,
   },

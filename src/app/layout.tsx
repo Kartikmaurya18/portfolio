@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Newsreader } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { site } from "@/content/site";
 import "./globals.css";
 
 const sans = Inter({ variable: "--font-inter", subsets: ["latin"] });
+const serif = Newsreader({ variable: "--font-newsreader", subsets: ["latin"], style: ["normal", "italic"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -29,7 +30,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={sans.variable}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable}`}>
       <body className="min-h-dvh">
         <a className="skip-link" href="#main">Skip to content</a>
         <p id="new-tab-note" hidden>Opens in a new tab</p>

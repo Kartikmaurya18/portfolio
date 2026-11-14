@@ -13,7 +13,7 @@ export const site = {
   role: "Software Development Engineer",
   company: "In-Solutions Global",
   location: "Mumbai, India",
-  tagline: "Road to 31.10.2027. Learning to ship AI where it actually runs.",
+  tagline: "A backend engineer learning to ship AI properly.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kartikm.in",
   title: "Kartik Maurya · AI and Java Backend Engineer in Mumbai",
   description:
@@ -24,7 +24,7 @@ export const site = {
 export const nav = [
   { label: "The run", href: "#run" },
   { label: "Road", href: "#road" },
-  { label: "How I build", href: "#beliefs" },
+  { label: "How I work", href: "#beliefs" },
 ];
 
 /**
@@ -37,8 +37,9 @@ export const road = {
 };
 
 export const hero = {
-  eyebrow: "// Mumbai, India · road to 31.10.2027",
-  /** Typed out on load. Every value is real text in the HTML. */
+  eyebrow: "Mumbai, India",
+  lead: "The days I've given myself to get properly good at taking AI from a demo to real customers.",
+  /** The status block next to the number. Typed out on load; every value is real text in the HTML. */
   terminal: {
     command: "kartik --status",
     lines: [
@@ -54,7 +55,8 @@ export const hero = {
 
 
 export const contact = {
-  heading: "Building something with AI? Let's talk.",
+  heading: "Get in touch",
+  line: "If you're building something with AI, or just want to talk engineering, write to me.",
 };
 
-export const footer = { note: "Built in Mumbai", signOff: "Built by hand" };
+export const footer = { note: "Built in Mumbai" };
