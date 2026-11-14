@@ -39,6 +39,18 @@ export const road = {
 export const hero = {
   eyebrow: "Mumbai, India",
   lead: "The days I've given myself to get properly good at taking AI from a demo to real customers.",
+  /** The status block next to the number. Typed out on load; every value is real text in the HTML. */
+  terminal: {
+    command: "kartik --status",
+    lines: [
+      ["role", "Software Development Engineer"],
+      ["company", "In-Solutions Global"],
+      ["learning", "AI, from demo to production"],
+      ["apis_built", "100+"],
+      ["deadline", "31.10.2027"],
+      ["location", "Mumbai, IN"],
+    ] as [string, string][],
+  },
 };
 
 

@@ -5,6 +5,7 @@ import { CountdownDetail, DayGrid, DaysLeft } from "@/components/countdown";
 import { ExternalLink } from "@/components/external-link";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
+import { TerminalHero } from "@/components/terminal-hero";
 import { Timeline } from "@/components/timeline";
 import { beliefs } from "@/content/beliefs";
 import { contact, hero, links, resumeFileName, road, site } from "@/content/site";
@@ -40,6 +41,7 @@ export default function HomePage() {
 
         <div>
           <section className="hero" aria-labelledby="intro-heading">
+            <div className="hero-copy">
             <p className="eyebrow">{hero.eyebrow}</p>
             <h1 id="intro-heading" className="sr-only">{site.name}</h1>
             <p className="hero-lead">{hero.lead}</p>
@@ -53,6 +55,8 @@ export default function HomePage() {
                 Let&apos;s talk <span aria-hidden="true">→</span>
               </a>
             </div>
+            </div>
+            <TerminalHero terminal={hero.terminal} />
           </section>
 
           <section id="run" className="content-section" aria-labelledby="run-heading">
