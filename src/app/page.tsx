@@ -11,7 +11,7 @@ import { Timeline } from "@/components/timeline";
 import { beliefs } from "@/content/beliefs";
 import { stats } from "@/content/stats";
 import { timeline } from "@/content/timeline";
-import { contact, hero, road, links, resumeFileName, site, skills } from "@/content/site";
+import { contact, hero, road, links, resumeFileName, site } from "@/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -45,7 +45,7 @@ export default function HomePage() {
           <section className="hero" aria-labelledby="intro-heading">
             <div className="hero-copy">
               <p className="eyebrow"><span className="status-dot" aria-hidden="true" /> {hero.eyebrow}</p>
-              <h1 id="intro-heading">{hero.headline}</h1>
+              <h1 id="intro-heading" className="sr-only">{site.name}</h1>
               <p className="big-days"><DaysLeft /></p>
               <CountdownDetail />
               <div className="hero-actions">
@@ -94,23 +94,6 @@ export default function HomePage() {
           <section id="beliefs" className="content-section" aria-labelledby="beliefs-heading">
             <SectionHeading id="beliefs-heading" eyebrow="// how i build" title="How I build" />
             <Beliefs items={beliefs} />
-          </section>
-
-          <section id="skills" className="content-section" aria-labelledby="skills-heading">
-            <SectionHeading id="skills-heading" eyebrow="// skills" title="Skills" />
-            <dl className="skills-list">
-              {skills.map((group) => (
-                <div key={group.category}>
-                  <dt>{group.category}<small>{group.context}</small></dt>
-                  <dd>
-                    <ul className="tag-list">
-                      {group.core?.map((name) => <li key={name} className="tag-core">{name}</li>)}
-                      {group.items.map((name) => <li key={name}>{name}</li>)}
-                    </ul>
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </section>
 
           <section id="contact" className="content-section contact-card" aria-labelledby="contact-heading">

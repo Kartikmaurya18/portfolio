@@ -1,4 +1,3 @@
-import { DaysLeft } from "@/components/countdown";
 import { LiveClock } from "@/components/live-clock";
 import { nav } from "@/content/site";
 
@@ -16,9 +15,7 @@ export function SiteHeader() {
       </nav>
       <div className="header-actions">
         <LiveClock />
-        <a className="button button-primary button-sm" href="#contact">
-          Let&apos;s talk <span className="t-minus">T−<DaysLeft />d</span>
-        </a>
+        <a className="button button-primary button-sm" href="#contact">Let&apos;s talk</a>
       </div>
     </header>
   );

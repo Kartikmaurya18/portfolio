@@ -1,5 +1,3 @@
-import type { SkillGroup } from "./types";
-
 export const links = {
   email: "kartikmaurya18@gmail.com",
   github: "https://github.com/Kartikmaurya18",
@@ -15,7 +13,7 @@ export const site = {
   role: "Software Development Engineer",
   company: "In-Solutions Global",
   location: "Mumbai, India",
-  tagline: "Days left to become a better engineer.",
+  tagline: "Road to 31.10.2027. Learning to ship AI where it actually runs.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kartikm.in",
   title: "Kartik Maurya · AI and Java Backend Engineer in Mumbai",
   description:
@@ -27,7 +25,6 @@ export const nav = [
   { label: "The run", href: "#run" },
   { label: "Road", href: "#road" },
   { label: "How I build", href: "#beliefs" },
-  { label: "Skills", href: "#skills" },
 ];
 
 /**
@@ -41,7 +38,6 @@ export const road = {
 
 export const hero = {
   eyebrow: "// Mumbai, India · road to 31.10.2027",
-  headline: "Days left to become a better engineer.",
   /** Typed out on load. Every value is real text in the HTML. */
   terminal: {
     command: "kartik --status",
@@ -56,36 +52,6 @@ export const hero = {
   },
 };
 
-export const skills: SkillGroup[] = [
-  {
-    category: "AI and LLMs",
-    context: "Recipe generation and chat in Homecheff.",
-    core: ["LLMs"],
-    items: ["RAG", "LangGraph", "AI agents"],
-  },
-  {
-    category: "Languages",
-    context: "Java at work, Python in OptionOS.",
-    core: ["Python", "Java"],
-    items: ["SQL", "TypeScript"],
-  },
-  {
-    category: "Backend and APIs",
-    context: "100+ banking APIs and the Homecheff API.",
-    core: ["Spring Boot", "REST APIs"],
-    items: ["FastAPI", "JPA/Hibernate", "Microservices", "Spring Security", "WebSockets"],
-  },
-  {
-    category: "Frontend",
-    context: "Angular in Stocky, React in OptionOS and Supriyapa.",
-    items: ["React", "Angular"],
-  },
-  {
-    category: "Databases and Infrastructure",
-    context: "Oracle at work, Docker on Railway and Render.",
-    items: ["PostgreSQL", "Oracle SQL", "Docker", "Kafka", "AWS", "Git", "Maven", "Postman"],
-  },
-];
 
 export const contact = {
   heading: "Building something with AI? Let's talk.",

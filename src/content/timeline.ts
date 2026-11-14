@@ -43,11 +43,8 @@ export const timeline: TimelineStep[] = [
     kind: "Software Development Engineer",
     period: "Nov 2025 – Present",
     current: true,
-    client: { name: "Consumer Choice Payments", url: "https://consumerchoicepayments.com/" },
     bullets: [
-      "Led the migration of PNB Genie from an Apache Struts monolith to Spring Boot microservices.",
-      "Shipped 100+ REST APIs in Java, Spring Boot and Oracle SQL for core banking workflows.",
-      "Building a Bharat Connect (BBPS) Customer Operating Unit for the {client} app.",
+      "Managing and handling the complete PNB Genie application.",
     ],
     learnings: [
       "Production is different: SIT and UAT cycles, releases and fixing defects.",
