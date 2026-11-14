@@ -78,6 +78,7 @@ export const timeline: TimelineStep[] = [
     goal: true,
     bullets: [
       "Taking AI from a demo to a customer's production.",
+      "Scaling applications: system design, load and reliability.",
     ],
     caseStudy: null,
   },
