@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "@/components/external-link";
 import { Beliefs } from "@/components/beliefs";
-import { Countdown } from "@/components/countdown";
+import { CountdownDetail, DayGrid, DaysLeft } from "@/components/countdown";
 import { CopyEmail } from "@/components/copy-email";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
@@ -11,7 +11,7 @@ import { Timeline } from "@/components/timeline";
 import { beliefs } from "@/content/beliefs";
 import { stats } from "@/content/stats";
 import { timeline } from "@/content/timeline";
-import { contact, hero, links, resumeFileName, site, skills } from "@/content/site";
+import { contact, hero, road, links, resumeFileName, site, skills } from "@/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -45,10 +45,9 @@ export default function HomePage() {
           <section className="hero" aria-labelledby="intro-heading">
             <div className="hero-copy">
               <p className="eyebrow"><span className="status-dot" aria-hidden="true" /> {hero.eyebrow}</p>
-              <h1 id="intro-heading">{hero.headline[0]} <span>{hero.headline[1]}</span></h1>
-              <p className="countdown">
-                <Countdown deadlineIso={hero.deadline.iso} /> days left on the road to {hero.deadline.label}
-              </p>
+              <h1 id="intro-heading">{hero.headline}</h1>
+              <p className="big-days"><DaysLeft /></p>
+              <CountdownDetail />
               <div className="hero-actions">
                 <a className="button button-primary" href="#road">
                   View My Work <span aria-hidden="true">↓</span>
@@ -62,6 +61,25 @@ export default function HomePage() {
           </section>
 
           <Ticker items={stats} />
+
+          <section id="run" className="content-section" aria-labelledby="run-heading">
+            <SectionHeading
+              id="run-heading"
+              eyebrow="// the run"
+              title="The run, in days"
+              intro={`One square per day, from my first freelance project to ${road.deadline.label}. Every lit square is a day spent getting better.`}
+            />
+            <DayGrid />
+            <div className="run-foot">
+              <p><span className="mono">{road.start.label}</span> · {road.start.note}</p>
+              <ul className="run-legend" aria-label="Legend">
+                <li><i className="lived" aria-hidden="true" /> lived</li>
+                <li><i className="today" aria-hidden="true" /> today</li>
+                <li><i aria-hidden="true" /> to go</li>
+              </ul>
+              <p><span className="mono">{road.deadline.label}</span> · {road.deadline.note}</p>
+            </div>
+          </section>
 
           <section id="road" className="content-section" aria-labelledby="road-heading">
             <SectionHeading

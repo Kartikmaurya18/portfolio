@@ -15,7 +15,7 @@ export const site = {
   role: "Software Development Engineer",
   company: "In-Solutions Global",
   location: "Mumbai, India",
-  tagline: "Learning to ship AI where it actually runs.",
+  tagline: "Days left to become a better engineer.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kartikm.in",
   title: "Kartik Maurya · AI and Java Backend Engineer in Mumbai",
   description:
@@ -24,16 +24,24 @@ export const site = {
 
 /** Header links. Each href is a section id on the homepage. */
 export const nav = [
+  { label: "The run", href: "#run" },
   { label: "Road", href: "#road" },
   { label: "How I build", href: "#beliefs" },
   { label: "Skills", href: "#skills" },
 ];
 
+/**
+ * The road the countdown measures. The start is the first freelance month
+ * (exact day unknown, so the 1st); the deadline is the goal date.
+ */
+export const road = {
+  start: { iso: "2025-01-01T00:00:00+05:30", label: "Jan 2025", note: "started freelancing" },
+  deadline: { iso: "2027-10-31T23:59:59+05:30", label: "31.10.2027", note: "deadline" },
+};
+
 export const hero = {
-  eyebrow: "// Mumbai, India",
-  headline: ["Learning to ship AI", "where it actually runs."],
-  /** The goal date. The page counts down to it; it never names a job title. */
-  deadline: { iso: "2027-12-31T23:59:59+05:30", label: "31.12.2027" },
+  eyebrow: "// Mumbai, India · road to 31.10.2027",
+  headline: "Days left to become a better engineer.",
   /** Typed out on load. Every value is real text in the HTML. */
   terminal: {
     command: "kartik --status",
@@ -42,7 +50,7 @@ export const hero = {
       ["company", "In-Solutions Global"],
       ["learning", "AI, from demo to production"],
       ["apis_built", "100+"],
-      ["deadline", "31.12.2027"],
+      ["deadline", "31.10.2027"],
       ["location", "Mumbai, IN"],
     ] as [string, string][],
   },
@@ -83,4 +91,4 @@ export const contact = {
   heading: "Building something with AI? Let's talk.",
 };
 
-export const footer = { note: "Built in Mumbai", signOff: "Built by hand." };
+export const footer = { note: "Built in Mumbai", signOff: "Built by hand" };

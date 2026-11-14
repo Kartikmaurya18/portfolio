@@ -84,7 +84,7 @@ export const timeline: TimelineStep[] = [
     id: "next",
     title: "What I'm learning next",
     kind: "Where I'm headed",
-    period: "By 31 Dec 2027",
+    period: "By 31 Oct 2027",
     goal: true,
     bullets: [
       "Scoping a problem with a customer, not just building the solution.",
