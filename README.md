@@ -17,7 +17,6 @@ Content lives in typed data files. Components never hold copy.
 | --- | --- |
 | `src/content/site.ts` | Name, links, SEO title and description, hero, the countdown dates (road), the contact copy and the footer |
 | `src/content/timeline.ts` | How I got here: one entry per step (dates, bullets, key learnings, case study). Entries starting with `TODO:` stay hidden until filled |
-| `src/content/stats.ts` | The numbers in the scrolling strip |
 | `src/content/freelance.ts` | The client websites. Not listed on the page any more; their count feeds the stats strip |
 | `src/content/projects.ts` | The case studies at `/work/[slug]` (problem, approach, decision, stack, result, screenshot alt text) |
 

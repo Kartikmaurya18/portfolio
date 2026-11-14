@@ -57,14 +57,14 @@ export function Timeline({ steps }: { steps: TimelineStep[] }) {
         ))}
       </div>
 
-      <p className="tl-hint" aria-hidden="true">Swipe to travel →</p>
+      <p className="tl-hint" aria-hidden="true">Swipe to see the next step →</p>
       <ol className="tl-panels" tabIndex={0} aria-label="Steps on the road">
         {visible.map((step, index) => {
           const bullets = step.bullets.filter((bullet) => !hidden(bullet));
           const learnings = (step.learnings ?? []).filter((line) => !hidden(line));
           return (
             <li key={step.id} className={`tl-panel${step.goal ? " tl-goal" : ""}`}>
-              <p className="tl-label">Step {pad(index + 1)} / {pad(total)}</p>
+              <p className="tl-label">Step {index + 1} of {total}</p>
               <h3>{step.title}</h3>
               <p className="tl-meta">
                 <span>{step.kind}</span>
