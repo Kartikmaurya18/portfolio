@@ -37,6 +37,12 @@ export const road = {
   deadline: { iso: "2027-10-31T23:59:59+05:30", label: "31.10.2027", note: "deadline" },
 };
 
+/**
+ * The learning journal starts on this day. The learning calendar runs from here
+ * to the road's deadline, so it fills in day by day.
+ */
+export const journal = { start: "2026-11-15", startLabel: "15 Nov 2026" };
+
 export const hero = {
   eyebrow: "Mumbai, India",
   lead: "The days I've given myself to get properly good at taking AI from a demo to real customers.",

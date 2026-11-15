@@ -10,7 +10,7 @@ import assert from "node:assert/strict";
 import { addDays, diffDays, endOfMonth, isISODate, startOfWeekMonday, todayIST, weekday } from "../src/lib/journal/dates.ts";
 import { draftToInput, parseLinks, parseTags } from "../src/lib/journal/form.ts";
 import { parseQuery } from "../src/lib/journal/query.ts";
-import { buildWeeks, countByDate, currentStreak, heatLevel, monthLabelIndexes, rollingRange } from "../src/lib/journal/stats.ts";
+import { buildWeeks, countByDate, currentStreak, heatLevel, journeyRange, monthLabelIndexes, rollingRange } from "../src/lib/journal/stats.ts";
 
 let passed = 0;
 const check = (name: string, fn: () => void) => {
@@ -73,6 +73,21 @@ check("calendar grid: 53 columns, Sunday first, today inside", () => {
   assert.equal(last.filter((c) => c.inRange).length, 1, "only today is in range after Sunday");
   const labels = monthLabelIndexes(weeks);
   assert.ok(labels.length >= 11 && labels.length <= 13);
+});
+
+check("calendar range starts on the journal's first day and runs to the deadline", () => {
+  const empty = journeyRange(new Map(), "2026-11-15", "2027-10-31", "2026-11-15");
+  assert.deepEqual(empty, { start: "2026-11-15", end: "2027-10-31" });
+  const weeks = buildWeeks(empty.start, empty.end);
+  const days = weeks.flat().filter((c) => c.inRange).length;
+  assert.equal(days, 351, "15 Nov 2026 to 31 Oct 2027 inclusive");
+  assert.equal(weeks.flat().find((c) => c.inRange)?.date, "2026-11-15");
+  assert.equal(weeks.flat().filter((c) => c.inRange).at(-1)?.date, "2027-10-31");
+});
+check("calendar range widens only for an entry before the start, and never ends before today", () => {
+  const early = journeyRange(countByDate(["2026-11-01", "2026-11-20"]), "2026-11-15", "2027-10-31", "2026-11-20");
+  assert.equal(early.start, "2026-11-01");
+  assert.equal(journeyRange(new Map(), "2026-11-15", "2026-11-10", "2026-11-20").end, "2026-11-20");
 });
 
 // The questions from the brief.

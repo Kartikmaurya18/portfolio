@@ -51,6 +51,7 @@ There are no API routes of my own: Supabase serves the CRUD API, and the databas
 | Route | What it does |
 | --- | --- |
 | `/journal` | Dashboard: today's date and topics, entry count, streak, days documented, latest entry, the calendar and day panel, "Previously learned" with search |
+| `/` (homepage) | "What I learned, day by day": the same calendar, each square a link to that day. Shown only once the two Supabase variables are set |
 | `/journal?date=YYYY-MM-DD` | The same page with a day open (shareable) |
 | `/journal/[id]` | One entry as a readable page, with related entries |
 | `/journal/write` (`?date=`) | New entry. Owner only |
@@ -75,6 +76,7 @@ Many entries can share one `entry_date`. `updated_at` is set by a database trigg
 
 ### What the numbers mean
 
+- **Calendar range**: from the journal start day (`journal.start` in `src/content/site.ts`, currently 15 Nov 2026) to the deadline, so it fills in day by day. If an entry is saved for an earlier day, the calendar starts there instead. Days after today are shown but cannot be opened.
 - **Calendar shade**: 0 entries = empty, 1, 2, 3 entries = three shades, 4 or more = the darkest. Today has a white outline and the open day has an accent ring.
 - **Streak**: days in a row with at least one entry, counted back from today (or from yesterday if nothing is saved yet today, so the streak survives until the day ends).
 - **Days are in Mumbai time.** An entry's date is the day you chose, not when it was saved.
@@ -88,7 +90,7 @@ npm run journal:check      # pure logic: dates, streak, shades, the search phras
 
 `npm run journal:e2e` drives a real browser through every scenario (visitor and owner) against a local stand-in for Supabase (`scripts/journal-e2e/fake-supabase.mjs`); the steps are at the top of `scripts/journal-e2e/run.mjs`. After the real Supabase project is set up, repeat these by hand once:
 
-1. Add three topics for today; click today's square and see all three.
+1. Add three topics for today (the calendar on the homepage and on `/journal` both update); click today's square and see all three.
 2. Open the site the next day: yesterday's entries are still there.
 3. Click another day: you see that day's records, not today's.
 4. Refresh: everything is still there and you are still logged in.

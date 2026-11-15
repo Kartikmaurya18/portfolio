@@ -17,8 +17,8 @@ import os from "node:os";
 import path from "node:path";
 import { addDays, formatLong, todayIST } from "../../src/lib/journal/dates.ts";
 
-const SITE = "http://localhost:3150";
-const API = "http://localhost:54321";
+const SITE = process.env.SITE ?? "http://localhost:3150";
+const API = process.env.API ?? "http://localhost:54321";
 const OUT = mkdtempSync(path.join(os.tmpdir(), "journal-e2e-"));
 const T = todayIST();
 const d = (n) => addDays(T, n);
@@ -211,6 +211,17 @@ try {
   check("Visitors are asked to log in on the write page", (await texts(".j-form h1"))[0] === "Log in to write");
   const denied = await fetch(`${API}/rest/v1/learning_entries`, { method: "POST", headers: { "content-type": "application/json", apikey: "anon-key", authorization: "Bearer anon-key" }, body: JSON.stringify({ entry_date: T, title: "hack" }) });
   check("The database refuses a write that is not from the owner", denied.status === 403, String(denied.status));
+
+  // The homepage shows the same calendar, as links
+  await goto("/");
+  await waitFor(`document.querySelector('#learning .j-heat-grid a.j-cell')`, "homepage calendar");
+  check("Homepage has the learning calendar section", (await texts("#learning h2"))[0] === "What I learned, day by day");
+  check("Homepage calendar squares are links to that day in the journal", (await ev(`document.querySelector('#learning a.j-cell[data-date="${d(-1)}"]').getAttribute('href')`)) === `/journal?date=${d(-1)}`);
+  check("Homepage calendar shows the same shades and totals", (await ev(`document.querySelector('#learning a.j-cell[data-date="${d(-1)}"]').className.includes('lv3')`)) && (await ev(`document.querySelector('#learning .j-home-stats').textContent.includes('${seeded} entries')`)));
+  await click(`#learning a.j-cell[data-date="${d(-1)}"]`);
+  await waitFor(`location.search==='?date=${d(-1)}'`, "opened from the homepage");
+  await waitFor(`document.querySelector('.j-day-topics')`, "day opened from the homepage");
+  check("Clicking a homepage square opens that day's notes in the journal", (await texts(".j-day-topics li")).length === 3);
 
   // ================= owner =================
   console.log("\n--- as the owner");

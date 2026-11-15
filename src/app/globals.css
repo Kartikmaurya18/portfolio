@@ -278,6 +278,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .j-tags a { display: inline-block; padding: 2px 10px; border: 1px solid var(--rule); border-radius: 999px; color: #b0bdb1; font-size: .78rem; }
 .j-tags a:hover { border-color: var(--accent); color: var(--fg); }
 .j-open { margin-top: 20px; }
+.j-home-stats { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 0; color: var(--fg); font-family: var(--font-mono); font-size: .86rem; }
+.j-home-link { margin: 14px 0 0; color: #93a197; font-size: .9rem; }
 .j-block h3 { margin: 22px 0 6px; color: var(--accent); font-family: var(--font-serif); font-size: 1.1rem; font-style: italic; font-weight: 400; }
 
 /* calendar */
@@ -286,12 +288,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (min-width: 900px) { .j-heat { --cell: 15px; --gap: 4px; } .j-heat-empty { height: 170px; } }
 .j-heat-body { display: flex; gap: 8px; }
 .j-heat-days { display: grid; grid-template-rows: 18px repeat(7, var(--cell)); gap: var(--gap); color: #8b9b8f; font-size: .66rem; line-height: var(--cell); }
-.j-heat-scroll { min-width: 0; flex: 1; padding-bottom: 6px; overflow-x: auto; }
+.j-heat-scroll { position: relative; min-width: 0; flex: 1; padding-bottom: 6px; overflow-x: auto; }
 .j-heat-months { display: grid; gap: var(--gap); width: max-content; height: 18px; color: #8b9b8f; font-size: .7rem; }
 .j-heat-months span { white-space: nowrap; }
 .j-heat-grid { display: grid; grid-auto-flow: column; grid-auto-columns: var(--cell); grid-template-rows: repeat(7, var(--cell)); gap: var(--gap); width: max-content; }
 .j-cell { display: block; width: var(--cell); height: var(--cell); padding: 0; border: 0; border-radius: 2px; background: rgb(255 255 255 / 7%); }
-button.j-cell { cursor: pointer; }
+button.j-cell, a.j-cell { cursor: pointer; }
 .j-cell.lv1 { background: rgb(220 183 127 / 30%); }
 .j-cell.lv2 { background: rgb(220 183 127 / 50%); }
 .j-cell.lv3 { background: rgb(220 183 127 / 72%); }
@@ -299,7 +301,7 @@ button.j-cell { cursor: pointer; }
 .j-cell.future { background: transparent; box-shadow: inset 0 0 0 1px rgb(255 255 255 / 6%); }
 .j-cell.is-today { outline: 1px solid var(--fg); outline-offset: 1px; }
 .j-cell.is-selected { box-shadow: 0 0 0 2px var(--accent); }
-button.j-cell:hover { outline: 1px solid rgb(241 239 232 / 60%); outline-offset: 1px; }
+button.j-cell:hover, a.j-cell:hover { outline: 1px solid rgb(241 239 232 / 60%); outline-offset: 1px; }
 .j-cell:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .j-heat-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; color: #93a197; font-size: .82rem; }
 .j-heat-foot p { margin: 0; }

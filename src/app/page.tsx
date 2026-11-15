@@ -3,13 +3,15 @@ import { Beliefs } from "@/components/beliefs";
 import { CopyEmail } from "@/components/copy-email";
 import { CountdownDetail, DayGrid, DaysLeft } from "@/components/countdown";
 import { ExternalLink } from "@/components/external-link";
+import { HomeCalendar } from "@/components/journal/home-calendar";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 import { TerminalHero } from "@/components/terminal-hero";
 import { Timeline } from "@/components/timeline";
 import { beliefs } from "@/content/beliefs";
-import { contact, hero, links, resumeFileName, road, site } from "@/content/site";
+import { contact, hero, journal, links, resumeFileName, road, site } from "@/content/site";
 import { timeline } from "@/content/timeline";
+import { journalConfigured } from "@/lib/journal/supabase";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -76,6 +78,17 @@ export default function HomePage() {
               <p><span className="mono">{road.deadline.label}</span> · {road.deadline.note}</p>
             </div>
           </section>
+
+          {journalConfigured && (
+            <section id="learning" className="content-section" aria-labelledby="learning-heading">
+              <SectionHeading
+                id="learning-heading"
+                title="What I learned, day by day"
+                intro={`A square for each day from ${journal.startLabel} to ${road.deadline.label}. A lit square means I wrote down what I learned that day. Pick one to read it.`}
+              />
+              <HomeCalendar start={journal.start} end={road.deadline.iso.slice(0, 10)} />
+            </section>
+          )}
 
           <section id="road" className="content-section" aria-labelledby="road-heading">
             <SectionHeading

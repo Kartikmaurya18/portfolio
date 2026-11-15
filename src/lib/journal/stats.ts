@@ -55,6 +55,17 @@ export function buildWeeks(start: string, end: string): Cell[][] {
   return weeks;
 }
 
+/**
+ * The calendar's range: from the day the journal started (or the first entry,
+ * if one was added for an earlier day) to the end date. The end is never
+ * before today.
+ */
+export function journeyRange(counts: Map<string, number>, start: string, end: string, today: string) {
+  let first = start;
+  for (const date of counts.keys()) if (date < first) first = date;
+  return { start: first, end: end < today ? today : end };
+}
+
 /** The window for "last 12 months": 53 weeks ending with the week of `today`. */
 export function rollingRange(today: string): { start: string; end: string } {
   return { start: addDays(startOfWeekSunday(today), -52 * 7), end: today };

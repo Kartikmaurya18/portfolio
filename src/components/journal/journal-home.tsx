@@ -7,8 +7,9 @@ import { entriesOnDate, fetchAllDates, latestEntry, listCategories, listEntries 
 import { addDays, formatLong, isISODate, weekdayName } from "@/lib/journal/dates";
 import { useQuery, useSession, useToday } from "@/lib/journal/hooks";
 import { parseQuery } from "@/lib/journal/query";
-import { countByDate, currentStreak } from "@/lib/journal/stats";
+import { countByDate, currentStreak, journeyRange } from "@/lib/journal/stats";
 import { journalConfigured } from "@/lib/journal/supabase";
+import { journal, road } from "@/content/site";
 import type { Category, Entry, EntryFilter } from "@/lib/journal/types";
 import { EntryBody, EntryCard, TagList, categoryName } from "./entry-parts";
 import { Heatmap } from "./heatmap";
@@ -47,6 +48,7 @@ function Dashboard() {
 
   const counts = useMemo(() => countByDate(dates.data ?? []), [dates.data]);
   const streak = today ? currentStreak(counts, today) : 0;
+  const range = journeyRange(counts, journal.start, road.deadline.iso.slice(0, 10), today || journal.start);
   const select = (date: string) => router.replace(`/journal?date=${date}`, { scroll: false });
 
   return (
@@ -121,8 +123,8 @@ function Dashboard() {
 
       <section className="j-section" aria-labelledby="calendar-title">
         <h2 id="calendar-title" className="j-h2">Learning calendar</h2>
-        <p className="j-muted">Each square is a day. Darker means more entries. Pick a day to read what I learned.</p>
-        <Heatmap counts={counts} today={today} selected={selected} onSelect={select} />
+        <p className="j-muted">Each square is a day, from the day I started to my deadline. Darker means more entries. Pick a day to read what I learned.</p>
+        <Heatmap counts={counts} today={today} start={range.start} end={range.end} selected={selected} onSelect={select} />
         {selected && today && (
           <DayPanel
             key={selected}
