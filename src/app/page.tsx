@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Beliefs } from "@/components/beliefs";
 import { CopyEmail } from "@/components/copy-email";
 import { CountdownDetail, DaysLeft } from "@/components/countdown";
 import { ExternalLink } from "@/components/external-link";
@@ -8,7 +7,6 @@ import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 import { TerminalHero } from "@/components/terminal-hero";
 import { Timeline } from "@/components/timeline";
-import { beliefs } from "@/content/beliefs";
 import { contact, hero, journal, links, resumeFileName, road, site } from "@/content/site";
 import { timeline } from "@/content/timeline";
 import { journalConfigured } from "@/lib/journal/supabase";
@@ -79,11 +77,6 @@ export default function HomePage() {
               intro="I started with freelance websites, learned backend through Spring Boot, then moved into production work. Now I'm learning to ship AI properly."
             />
             <Timeline steps={timeline} />
-          </section>
-
-          <section id="beliefs" className="content-section" aria-labelledby="beliefs-heading">
-            <SectionHeading id="beliefs-heading" title="How I work" />
-            <Beliefs items={beliefs} />
           </section>
 
           <section id="contact" className="content-section contact" aria-labelledby="contact-heading">

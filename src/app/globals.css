@@ -167,12 +167,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .tl-radio:nth-of-type(8):focus-visible ~ .tl-rail .tl-step:nth-child(8) { outline: 2px solid var(--accent); outline-offset: 4px; }
 .tl-radio:nth-of-type(8):checked ~ .tl-panels .tl-panel:nth-child(8) { display: block; }
 
-/* How I work: a numbered list set in the serif, no cards */
-.beliefs { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-.belief { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 4px 12px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
-.belief-num { padding-top: .55rem; color: var(--accent); font-family: var(--font-mono); font-size: .76rem; }
-.belief h3 { margin: 0; color: var(--fg); font-family: var(--font-serif); font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 400; line-height: 1.25; text-wrap: balance; }
-.belief p { max-width: 58ch; margin: 8px 0 0; color: #a9b5ac; font-size: 1rem; line-height: 1.7; }
 
 /* Contact: open text, no box */
 .contact { padding-top: 40px; border-top: 1px solid var(--rule); }
@@ -211,7 +205,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hero { padding: 32px 0 8px; }
   .content-section { margin-top: 76px; }
   .section-heading { margin-bottom: 22px; }
-  .belief { grid-template-columns: 2.6rem minmax(0, 1fr); padding: 22px 0; }
   .site-footer { margin-top: 64px; }
 }
 @media (max-width: 520px) {
