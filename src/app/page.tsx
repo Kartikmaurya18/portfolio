@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Beliefs } from "@/components/beliefs";
 import { CopyEmail } from "@/components/copy-email";
-import { CountdownDetail, DayGrid, DaysLeft } from "@/components/countdown";
+import { CountdownDetail, DaysLeft } from "@/components/countdown";
 import { ExternalLink } from "@/components/external-link";
 import { HomeCalendar } from "@/components/journal/home-calendar";
 import { SectionHeading } from "@/components/section-heading";
@@ -59,24 +59,6 @@ export default function HomePage() {
             </div>
             </div>
             <TerminalHero terminal={hero.terminal} />
-          </section>
-
-          <section id="run" className="content-section" aria-labelledby="run-heading">
-            <SectionHeading
-              id="run-heading"
-              title="The run, in days"
-              intro={`One square for each day between my first freelance project and ${road.deadline.label}.`}
-            />
-            <DayGrid />
-            <div className="run-foot">
-              <p><span className="mono">{road.start.label}</span> · {road.start.note}</p>
-              <ul className="run-legend" aria-label="Legend">
-                <li><i className="lived" aria-hidden="true" /> lived</li>
-                <li><i className="today" aria-hidden="true" /> today</li>
-                <li><i aria-hidden="true" /> to go</li>
-              </ul>
-              <p><span className="mono">{road.deadline.label}</span> · {road.deadline.note}</p>
-            </div>
           </section>
 
           {journalConfigured && (

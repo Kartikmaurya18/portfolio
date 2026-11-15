@@ -106,18 +106,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .section-heading h2, .contact h2 { margin: 0; color: var(--fg); font-family: var(--font-serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); font-weight: 400; letter-spacing: -.01em; line-height: 1.15; }
 .section-intro { max-width: 60ch; margin: 12px 0 0; color: #b0bbb3; font-size: 1rem; line-height: 1.7; }
 
-/* The run: just the grid, no box */
-.daygrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(9px, 1fr)); gap: 3px; }
-.daygrid i, .run-legend i { display: block; aspect-ratio: 1; border-radius: 2px; background: rgb(255 255 255 / 7%); }
-.daygrid i.lived, .run-legend i.lived { background: rgb(220 183 127 / 60%); }
-.daygrid i.today, .run-legend i.today { background: var(--fg); }
-.run-foot { display: grid; grid-template-columns: 1fr auto; gap: 10px 16px; margin-top: 16px; color: #b4c0b6; font-size: .85rem; }
-.run-foot p { margin: 0; }
-.run-foot p:last-child { grid-column: 2; grid-row: 1; text-align: right; }
-.run-foot .mono { color: var(--fg); }
-.run-legend { grid-column: 1 / -1; grid-row: 2; display: flex; gap: 16px; margin: 0; padding: 0; list-style: none; font-size: .78rem; }
-.run-legend li { display: flex; align-items: center; gap: 6px; }
-.run-legend i { width: 10px; }
 
 /* The road: tabs and a plain column of text. Wide screens show one step; phones swipe. */
 .tl { min-width: 0; margin: 0; padding: 0; border: 0; }
@@ -207,9 +195,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @keyframes t-blink { 50% { opacity: 0; } }
 @keyframes t-hide { to { visibility: hidden; } }
 
-@media (min-width: 681px) {
-  .run-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-}
 @media (max-width: 900px) {
   .portfolio-shell, .site-footer { width: min(100% - 48px, 740px); }
   .hero { grid-template-columns: 1fr; padding-top: 64px; }
@@ -222,7 +207,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .site-header { min-height: 0; padding: 12px 0 10px; }
   .main-nav { order: 3; width: 100%; margin-left: 0; justify-content: space-between; gap: 16px; font-size: .82rem; }
   .clock-place { display: none; }
-  .daygrid { grid-template-columns: repeat(auto-fill, minmax(7px, 1fr)); gap: 2px; }
   .brand-mark { width: 34px; height: 34px; }
   .hero { padding: 32px 0 8px; }
   .content-section { margin-top: 76px; }
