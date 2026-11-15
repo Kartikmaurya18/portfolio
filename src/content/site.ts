@@ -25,6 +25,7 @@ export const nav = [
   { label: "The run", href: "#run" },
   { label: "Road", href: "#road" },
   { label: "How I work", href: "#beliefs" },
+  { label: "Journal", href: "/journal" },
 ];
 
 /**
