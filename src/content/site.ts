@@ -22,9 +22,8 @@ export const site = {
 
 /** Header links. Each href is a section id on the homepage. */
 export const nav = [
-  { label: "The run", href: "#run" },
   { label: "Road", href: "#road" },
-  { label: "How I work", href: "#beliefs" },
+  { label: "Journal", href: "/journal" },
 ];
 
 /**
@@ -35,6 +34,12 @@ export const road = {
   start: { iso: "2025-01-01T00:00:00+05:30", label: "Jan 2025", note: "started freelancing" },
   deadline: { iso: "2027-10-31T23:59:59+05:30", label: "31.10.2027", note: "deadline" },
 };
+
+/**
+ * The learning journal starts on this day. The learning calendar runs from here
+ * to the road's deadline, so it fills in day by day.
+ */
+export const journal = { start: "2026-11-15", startLabel: "15 Nov 2026" };
 
 export const hero = {
   eyebrow: "Mumbai, India",

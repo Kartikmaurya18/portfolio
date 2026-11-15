@@ -35,20 +35,3 @@ export function CountdownDetail() {
     </p>
   );
 }
-
-/** One square per day of the road: lived, today, to go. */
-export function DayGrid() {
-  const now = useNowSeconds(60_000);
-  const day = now === 0 ? 0 : progress(now * 1000).dayNumber;
-  const label =
-    day === 0
-      ? `${fmt(totalDays)} days, one square each`
-      : `Day ${fmt(day)} of ${fmt(totalDays)}: ${fmt(day - 1)} days lived, ${fmt(totalDays - day)} to go`;
-  return (
-    <div className="daygrid" role="img" aria-label={label}>
-      {Array.from({ length: totalDays }, (_, i) => (
-        <i key={i} className={day === 0 ? undefined : i < day - 1 ? "lived" : i === day - 1 ? "today" : undefined} />
-      ))}
-    </div>
-  );
-}
